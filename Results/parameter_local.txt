@@ -1,0 +1,56 @@
+% Define parameters for multiple runs as val1;val2;val3
+% no spaces allowed
+% Define ranges for multiple runs as valStart:increment:valEnd
+% Ranges are only allowed for parameters with numerical values
+% As initial several scenarios can be combined using "&"
+% so for example starting in Ischgl and Heinsberg: set initial Ischgl&Heinsberg
+% Each line with a parameter need a comment in the end, otherwise the line is ignored
+% betaStatewise and betaCCStatewise can be given as b1,b2,...b16
+% if betaStatewise is given, beta will be ignored, same for betaCCstatewise
+
+% SIR model and parameter
+set model		= SIREDmod	% SIREDmod
+set reduce		= true		% true|false Reduction to counties
+set reduceToStates	= false		% true|false Reduction to states instead of counties
+set beta		= 0.175564	% rate to get exposed
+set betaStatewise	= 0.148106,0.260469,0.109561,0.195322,0.202218,0.086421,0.052591,0.212167,0.281259,0.329717,0.144268,0.217264,0.106012,0.210734,0.097104,0.155813,0.281259	% a comment is necessary so far
+set gamma1		= 0.067		% rate to recover from light symptoms
+set gamma2		= 0.04		% rate to recover from discovered infection
+set darkFigure		= 8.6403	% dark figure (ratio dicovered or not)
+set mortality		= 0.006		% mortality
+
+% considering the change of parameters due to Lockdown
+set schoolClosing	= 1		% beta reduction due to school closing
+set contactRestrictions = 0.188669	% beta reduction due to contact ristrictions
+set exitRestrictions	= 1		% beta reduction due to exit restrictions
+set majorEvents		= 0.378322	% beta reduction due to major events restrictions
+
+% Cross county infections
+set beta_cross_county	= 1		% Ratio of in- and cross- county beta
+set beta_cc_statewise	= 1.493720,0.431189,1.445615,0.516137,0.344211,0.824671,1.175521,0.537480,0.506872,0.472437,0.515953,1.664755,1.191301,0.681262,0.948501,1.114234,1.664755 % a comment is necessary so far
+set n_traffic		= 2		% Exponent for (c_x / distance)^n
+set MobNetworkModel 	= true		% Select if cross county infections via MobNetwork Model
+
+% spatial and intial setting
+set spatial		= germany	% 3cities|small|bayern|germany|europeanCapitals
+set initial		= GitData	% 1000Uniform|100Burghausen|1000Munich|allMunich|RKIcountyWise|Ischgl|Heinsberg|Heiligendamm|GitData
+set initalDistributionDate	= 2020-03-16	% when using GitData in inital, set what date should be used between 2020-03-02 and 2020-05-03, ignored otherwise
+set totalRuntime	= 200		% Start is always at t=0
+set startDate		= 2020-03-02	% YYYY-MM-DD
+set endDateOpt		= 2020-04-25	% YYYY-MM-DD
+
+% solver
+set maxTimeStep		= 0.1		% max timestepsize for solver
+set nRuns		= 1		% number off runs for optimization
+
+% postprocessing
+set showDiagrams	= true		% true|false
+set saveVTK		= true		% true|false
+set saveConnections	= false		% true|false add connections in vtk-files
+set resolutionVTK	= 93		% number of timesteps in grafical output
+set blowUp		= false		% true|false blowUp counties to cities if reduced
+set folderName		= auto		% Foldername for output or "auto" to choose dateTime as foldername
+set fullConsoleOut	= true		% whether the present day is written or not
+set OutputComparisonRKI	= false		% when setto true just vtks for the days where countywise data from RKI is available (for now 2020-04-25 and 2020-04-11)
+set discoveredInVTK	= true		% for sired model if discovered in vtk or not
+set vtkStyleMap		= true		% true for map, false for circles
