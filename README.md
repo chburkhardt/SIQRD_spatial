@@ -27,21 +27,20 @@ compartments in the paper differ from those in the implementation.
 * This is where all results are written in, namely vtks, the parameter file used, *.mat files with a struct for each county and its solution
 
 ### Code
-
-	is structured in a spatial, a local and a particle swarm optimization (PSO) part
+is structured in a spatial, a local and a particle swarm optimization (PSO) part
 
 #### Local
-	*SIR_Run.m is the mainfile
-	*siredMod.m is the file where the ODE is defined and further files needed for the parameter fitting
+* SIR_Run.m is the mainfile
+* siredMod.m is the file where the ODE is defined and further files needed for the parameter fitting
 
 #### Spatial
-	*sir_spatial.m is the mainfile
-	*read_*.m and setup_system.m files input and build all necessary data 
-	*sir_eqn_spatial.m is the spatial extended SIQRDd Model
-	*standAlonePosteProcessing.m, generateVTK.m and vtkwrite.m are for postprocessing
+* sir_spatial.m is the mainfile
+* read_*.m and setup_system.m files input and build all necessary data 
+* sir_eqn_spatial.m is the spatial extended SIQRDd Model
+* standAlonePosteProcessing.m, generateVTK.m and vtkwrite.m are for postprocessing
 
 #### PSO
-	*defines the routine for Particel Swarm Optimization
+* defines the routine for Particel Swarm Optimization
 	
 
 
