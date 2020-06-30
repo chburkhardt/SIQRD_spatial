@@ -1,3 +1,6 @@
+%# The current file is based on the OdePkg package of GNU Octave
+%# Minor changes are introduced to obtain the shown results
+%# 
 %# Copyright (C) 2015-2016, Jacopo Corno <jacopo.corno@gmail.com>
 %# Copyright (C) 2008-2012, Thomas Treichl <treichl@users.sourceforge.net>
 %# OdePkg - A package for solving ordinary differential equations and more

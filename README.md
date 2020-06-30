@@ -29,6 +29,11 @@ compartments in the paper differ from those in the implementation.
 ### Code
 is structured in a spatial, a local and a particle swarm optimization (PSO) part
 
+NOTE:
+vtkwrite.m is based on Chaoyuan Yeh, 2016  %  Version 2.3 and modified 
+ode23d_fixed.m is based on the corresponding ode23d.m file from the OdePkg package of GNU Octave and modified
+
+
 #### Local
 * SIR_Run.m is the mainfile
 * siredMod.m is the file where the ODE is defined and further files needed for the parameter fitting
