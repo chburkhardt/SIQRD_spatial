@@ -27,6 +27,15 @@ function data = read_case_history (filename_infected,filename_dead)
   if nargin == 0
     filename_infected = '../../Daten/Infectionnumbers.txt';
     filename_dead = '../../Daten/Deathnumbers.txt';
+  elseif nargin == 1
+    switch filename_infected
+      case 'Meldung' 
+        filename_infected = '../../Daten/Infectionnumbers_nachMeldung.txt';
+        filename_dead = '../../Daten/Deathnumbers.txt';
+      case 'Erkrankungsbeginn'
+        filename_infected = '../../Daten/Infectionnumbers_nachErkrankungsbeginn.txt';
+        filename_dead = '../../Daten/Deathnumbers.txt';
+    endswitch  
   end
   
   % !!!!!!!!!!!!!!!

@@ -25,49 +25,83 @@
 
 function varargout = optimizeStateWise (parameterArray) %filelname 1 und filename 2
   tOpt = tic;
-  addpath('../', '../Pso'); 
-	if nargin == 0
-  	close all;
-		parameterArray = read_parameter('../../Results/parameter.txt');  
-		%% the entries can be directly modified in the struct
-		%% eg. set a foldername
-		parameterArray{1}.model = "SIREDmod";
-		%parameterArray{1}.totalRuntime = 40;
-		parameterArray{1}.folderName = "Test_Plots";
-		parameterArray{1}.saveVTK = false;
-		parameterArray{1}.showDiagrams = false;
-		parameterArray{1}.fullConsoleOut = true;
-		parameterArray{1}.blowUp = false;
-		parameterArray{1}.spatial	= "germany";
-		parameterArray{1}.initial = "GitData";
-		parameterArray{1}.initalDistributionDate = datenum([2020, 03, 16]);
-		parameterArray{1}.startDate = datenum([2020, 03, 02]);
-		parameterArray{1}.endDateOpt = datenum([2020, 04, 25]);
-		parameterArray{1}.reduceToStates= true;
-		parameterArray{1}.betaStateWise= false;
-		parameterArray{1}.exitRestrictions= 1;
-		parameterArray{1}.schoolClosing= 1;
-		parameterArray{1}.beta_cross_county	= 1;
-		
-		parameterArray{1}.wRatioGlobStates = 0;%.5; % 1 is fully statewise, 0 is only global
-		parameterArray{1}.wRatioID = 1; % 1 is only infected, 0 only death
-    parameterArray{1}.wISlope = 0.002; % weight for slope of infected last date
+  addpath('../', '../Pso');
+  %% Example  
+  
+  if nargin == 0
+    close all;
+    parameterArray = read_parameter('../../Results/parameter.txt');  
+    %% the entries can be directly modified in the struct
+    %% eg. set a foldername
+    parameterArray{1}.model = "SIREDmod";
+    %parameterArray{1}.totalRuntime = 40;
+    parameterArray{1}.folderName = "Test2ndWave";
+    parameterArray{1}.saveVTK = false;
+    parameterArray{1}.saveDiagrams = false;
+    parameterArray{1}.showDiagrams = false;
+    parameterArray{1}.fullConsoleOut = true;
+    parameterArray{1}.blowUp = false;
+    parameterArray{1}.spatial = "germany";
+    parameterArray{1}.initial = "RKIfiles";%"GitData";
+    parameterArray{1}.initalDistributionDate = datenum([2020, 03, 16]);
+    parameterArray{1}.startDate = datenum([2020, 03, 02]);
+    parameterArray{1}.endDateOpt = datenum([2020, 04, 30]);
+    %parameterArray{1}.initalDistributionDate = datenum([2020, 03, 16]);
+    %parameterArray{1}.startDate = datenum([2020, 08, 01]);
+    %parameterArray{1}.endDateOpt = datenum([2020, 11, 25]);
+    parameterArray{1}.reduceToStates= true;
+    %parameterArray{1}.betaStateWise= false;
+    parameterArray{1}.beta_cross_county = 1;
+    
+    %parameterArray{1}.slopeFitInterval = "end";
+    parameterArray{1}.slopeFitInterval = "lastWeek";
+    %parameterArray{1}.dayForDeathFit = "twoWeeksToSimEnd";    
+    parameterArray{1}.dayForDeathFit = "twoWeeksToSimEnd";
+    %parameterArray{1}.timeForFactorsDF = "twoWeeksToSimEnd";
+    parameterArray{1}.timeForFactorsDF = "twoWeeksToSimEnd";
+    
+    parameterArray{1}.wRatioGlobStates = 0; % 1 is fully statewise, 0 is only global
+    parameterArray{1}.wRatioID = 1; % 1 is only infected, 0 only death
+    parameterArray{1}.wISlope = 0.05; % weight for slope of infected last date
+    parameterArray{1}.dayForDeathFit = "lastDay"; 
     parameterArray{1}.optFunGermanSum = true;
-		parameterArray{1}.showStatePlots = false;
-		
-		parameterArray{1}.gamma1 = 0.067; % Infected (not detected) -> Recovered
-		parameterArray{1}.gamma2 = 0.04; % Quarantine -> Recovered
-		parameterArray{1}.mortality = 0.006; % 0.006
-		parameterArray{1}.darkFigure = 6;
-		parameterArray{1}.beta =  0.8;
-		parameterArray{1}.betaSWscaling =  2;
-		
-		parameterArray{1}.majorEvents	= 0.37;
-		parameterArray{1}.contactRestrictions = 0.188669;  
-		
-	endif
-	  
-  RKIread = read_case_history();
+    parameterArray{1}.schoolClosing	= 1;
+    parameterArray{1}.contactRestrictions = 1;%0.14;%091810;%0.0757;%1;
+    parameterArray{1}.exitRestrictions	= 1;		
+    parameterArray{1}.majorEvents		= 1;%0.658481;%0.6615;%1;
+    parameterArray{1}.easingContactRestrictions	= 1;
+    parameterArray{1}.endOfVacation	= 1;
+    parameterArray{1}.liftingTravelRestictionsEU	= 1;
+    parameterArray{1}.lockdownLight =1;
+    %parameterArray{1}.n_runs = 1;
+    parameterArray{1}.showStatePlots = true;
+    
+    parameterArray{1}.gamma1 = 0.067; % Infected (not detected) -> Recovered
+    parameterArray{1}.gamma2 = 0.04; % qarantine -> Recovered
+    parameterArray{1}.mortality = 0.006; % 0.006
+    parameterArray{1}.darkFigure = 18;%11.2;%9.95; %6.5;
+    parameterArray{1}.beta = 0.5;%0.138465;%0.1413;%1.842096; %0.196693; %0.17;
+    %parameterArray{1}.betaStatewise = [0.148106,0.260469,0.109561,0.195322,0.202218,0.086421,0.052591,0.212167,0.281259,0.329717,0.144268,0.217264,0.106012,0.210734,0.097104,0.155813];
+	
+	%parameterArray{1}.beta =  1;
+	parameterArray{1}.betaSWscaling = 1;		
+##	parameterArray{1}.majorEvents	= 0.318781; %0.302252; %0.2092;
+##	parameterArray{1}.contactRestrictions = 0.446369;%0.499724; %0.5956;
+##	
+
+##    parameterArray{1}.showStatePlots = false;
+    ##  ##  % For the countywise model
+    ##    parameterArray{1}.reduceToStates= false;
+    ##    parameterArray{1}.beta_cross_county =  0.87869;%0.436106125; % 1.08 ohne ss to cs anpassung
+  endif
+  
+  %days können wir später dann in das Parameterarry mit aufnehmen
+  %days beschreibt die Zeitspanne in der die Optimierung laufen soll
+  %außerdem brauchen wir noch einen Parameter, der bestimmt, ob wir 
+  %statewise oder für ganz Deutschland fitten
+  
+  RKIread = read_case_history_RKIfiles();
+  
   %rewrite the cell, since states are arranged differently in RKIread and statewiseSIR
   RKIdata = cell(16,1);
   RKIdata{1} = RKIread{15};
@@ -90,404 +124,315 @@ function varargout = optimizeStateWise (parameterArray) %filelname 1 und filenam
   %cumulate infection numbers 
   %create splines
   timesRKI = cell2mat(RKIdata{1}.time);
+  parameterArray{1}.dataStatus = datestr(timesRKI(end));
   for i=1:length(RKIdata)
-    RKIdata{i}.infected = cumsum(cell2mat(RKIdata{i}.infected));
+    %RKIinf = RKIdata{i}.infected;
+    RKIdata{i}.infected = cell2mat(RKIdata{i}.infected);
     RKIdata{i}.splineInfected = spline(timesRKI, RKIdata{i}.infected);
     RKIdata{i}.dead = cell2mat(RKIdata{i}.dead);
     RKIdata{i}.splineDead = spline(timesRKI, RKIdata{i}.dead);
   end
-	  
+  
+##    darkFiguresStates = zeros(1, length(RKIdata));
+##    for i=1:length(RKIdata)
+##      darkFiguresStates(i) = ppval(RKIdata{i}.splineDead, parameterArray{1}.endDateOpt)/...
+##      ppval(RKIdata{i}.splineInfected, parameterArray{1}.endDateOpt - 15);
+##    end
+##    darkFiguresStates /= parameterArray{1}.mortality;
+  
+##  darkFiguresStates = zeros(1, length(RKIdata));
+##  for i=1:length(RKIdata)
+##    darkFiguresStates(i) = ppval(RKIdata{i}.splineDead, parameterArray{1}.endDateOpt)/...
+##    (ppval(RKIdata{i}.splineInfected, (parameterArray{1}.endDateOpt - 15))*...
+##    parameterArray{1}.mortality);
+##  end
+##  darkFiguresStates /= mean(darkFiguresStates);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %calculation of DF factors for states by end of fitting period
+##  darkFiguresStates = zeros(1, length(RKIdata));
+##  for i=1:length(RKIdata)
+##    darkFiguresStates(i) = ppval(RKIdata{i}.splineDead, parameterArray{1}.endDateOpt)/...
+##    (ppval(RKIdata{i}.splineInfected, (parameterArray{1}.endDateOpt - 15))*...
+##    parameterArray{1}.mortality);
+##  end
+##  parameterArray{1}.darkFigure = mean(darkFiguresStates);
+##  darkFiguresStates /= mean(darkFiguresStates);
+##  parameterArray{1}.factorsDF = darkFiguresStates;
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %This parameter determines the period of time over which the scaling factors 
+  %of the estimated dark figure are to be determined for the individual federal 
+  %states. If you fit the first wave, you can use the last week of the fitting 
+  %period. So you avoid that deviations on the last day of the fitting period are 
+  %too significant. If you are fitting data that is not yet complete 
+  %(RKI supplements are very likely), you should determine the factors 2 weeks 
+  %before the end of the fitting
+  startIndex = parameterArray{1}.startDate - cell2mat(RKIdata{1}.time(1)) + 1;
+  endIndex = parameterArray{1}.endDateOpt - cell2mat(RKIdata{1}.time(1)) + 1;
+  RT = endIndex - startIndex;
+  dfState = zeros(1,16);
+  if isfield(parameterArray{1},'timeForFactorsDF')
+    if strcmp(parameterArray{1}.timeForFactorsDF, 'lastWeek')
+      interval = endIndex-6:endIndex;
+    elseif strcmp(parameterArray{1}.timeForFactorsDF, 'twoWeeksToSimEnd')
+      interval = endIndex-20:endIndex-14;
+    end
+  else
+    interval = endIndex-6:endIndex;
+  end
+  for j=1:16
+    meanState = 0;
+    counter = 0;
+    %for i=endIndex-6:endIndex
+    for i=interval(1):interval(end)
+      meanState += cell2mat(RKIdata{j}.df(i));
+      counter += 1;
+    end
+    RT = counter; 
+    meanState /= RT;
+    dfState(j) = meanState;
+  end
+  %parameterArray{1}.darkFigure = mean(dfState); 
+  %calculate FactorsDF for sir_eqn_spatial
+  factorsDF = dfState/mean(dfState);
+  parameterArray{1}.factorsDF = factorsDF;
+ 
+  ##  figure;
+  ##  hold on;
+  ##  population = [2896712, 1841179, 7982448, 682986, 17932651, 6265809,...
+  ##  4084844, 11069533, 13076721, 990509, 3644826, 2511917,...
+  ##  1609675, 4077937, 2208321, 2143145];
+  ##  for i=1:length(RKIdata)
+  ##    semilogy(cell2mat(RKIdata{i}.time), (RKIdata{i}.infected/RKIdata{i}.infected(1))); 
+  ##  end
+  ##  a=[0.942866 1.256358 0.742975 1.030929 0.987411 0.636118 0.500751 1.119750 1.473729 1.659163 0.889826 0.977812 0.727012 1.210213 0.660300 0.838075];
+  ##  figure;
+  ##  hist(a);
+  
+  ##  times = cell2mat(RKIdata{1}.time);
+  ##  rkiD = zeros(1,length(RKIdata{1}.time)*16);
+  ##  rkiI = zeros(1,length(RKIdata{1}.time)*16);
+  ##  %rkiI = ppval(RKIdata{1}.splineInfected, times);
+  ##  for i=1:length(RKIdata)
+  ##    rkiI(1, (i-1)*length(times)+1:i*length(times)) = ppval(RKIdata{i}.splineInfected, times);
+  ##    rkiD(1, (i-1)*length(times)+1:i*length(times)) = ppval(RKIdata{i}.splineDead, times);
+  ##  end
+
+  if isfield(parameterArray{1},'paraNames')
+    paraNames = parameterArray{1}.paraNames;
+    x0Cov = parameterArray{1}.x0Cov;
+    lb = parameterArray{1}.lb;
+    ub = parameterArray{1}.ub;
+  else 
   %setting paramters
-  paraNames = {"betaCorr1", "betaCorr2", "betaCorr3", "betaCorr4","betaCorr5",...
-	"betaCorr6", "betaCorr7", "betaCorr8", "betaCorr9", "betaCorr10",...
-	"betaCorr11", "betaCorr12", "betaCorr13", "betaCorr14", "betaCorr15", "betaCorr16"};
-  x0Cov = [0.834401 1.479429 0.622385 1.108438 1.139666 0.500897 0.298197 1.147868 1.612068 1.880193 0.772545 1.191203 0.598741 1.202886 0.56924 0.833693];	
-	
-  paraNames = {"beta", "majorEvents", "contactRestrictions"};
-  x0Cov = [0.157 0.61 0.5]; 
-  variations = ones(1, length(paraNames)) * 0.2;
-  variations = [0.2 0.2 0.7];
-  lb = x0Cov .* (1 - variations);
-  ub = x0Cov .* (1 + variations);
-	
-  optAlgorithm = "justVisualize"; %lsqnonlin|pso
-	if isfield(parameterArray{1}, "paraNamesOpt")
-		paraNames = getfield(parameterArray{1}, "paraNamesOpt");
-		x0Cov = getfield(parameterArray{1}, "x0CovOpt");
-		lb = getfield(parameterArray{1}, "lbOpt");
-		ub = getfield(parameterArray{1}, "ubOpt");	
-		optAlgorithm = getfield(parameterArray{1}, "optAlgorithmOpt");	
-	endif	
+##  paraNames = {"betaCorr1", "betaCorr2", "betaCorr3", "betaCorr4","betaCorr5",...
+##  "betaCorr6", "betaCorr7", "betaCorr8", "betaCorr9", "betaCorr10",...
+##  "betaCorr11", "betaCorr12", "betaCorr13", "betaCorr14", "betaCorr15", "betaCorr16"};
+##  x0Cov = [0.834401 1.479429 0.622385 1.108438 1.139666 0.500897 0.298197 1.147868 1.612068 1.880193 0.772545 1.191203 0.598741 1.202886 0.56924 0.833693]; 
+##  lb = zeros(16,1);
+##  ub = lb+0.5;  
+
+    paraNames = {"beta", "majorEvents", "contactRestrictions", "darkFigure"};
+    x0Cov = [0.157 0.61 0.3 10]; 
+    lb = [0 0 0 8];
+    ub = [0.5 1 1 20];
+  end
+  %beta: 0.122582 | majorEvents: 0.811800 | contactRestrictions: 0.089347 | darkFigure: 12.323605 
+  %0.122583 | majorEvents: 0.811847 | contactRestrictions: 0.089465 | darkFigure: 12.323155 | 
+
+##  parameterArray{1}.beta =  0.122583;
+##  parameterArray{1}.majorEvents = 0.811847;
+##  parameterArray{1}.contactRestrictions = 0.089465;
+##  parameterArray{1}.darkFigure = 12.323155;
+##  parameterArray{1}.fitNewInfections = true;
+  if isfield(parameterArray{1},'fitNewInfections')
+  else 
+    parameterArray{1}.fitNewInfections = false;
+  end
+  if isfield(parameterArray{1},'optAlgorithm')
+    optAlgorithm = parameterArray{1}.optAlgorithm;
+  else
+    optAlgorithm = "justVisualize"; %lsqnonlin|pso
+    parameterArray{1}.optAlgorithm = optAlgorithm;
+  end
+##  if isfield(parameterArray{1}, "paraNamesOpt")
+##    paraNames = getfield(parameterArray{1}, "paraNamesOpt");
+##    x0Cov = getfield(parameterArray{1}, "x0CovOpt");
+##    lb = getfield(parameterArray{1}, "lbOpt");
+##    ub = getfield(parameterArray{1}, "ubOpt");  
+##    optAlgorithm = getfield(parameterArray{1}, "optAlgorithmOpt");  
+##  endif 
   switch optAlgorithm
     case "lsqnonlin"
-			parameterArray{1}.fullConsoleOut = false;
+      parameterArray{1}.fullConsoleOut = false;
       [paramCovBest, resMin] = runLsqNonlin(x0Cov, lb, ub,...
       paraNames, parameterArray, RKIdata);
     case "pso"
       opt.parallel = true;
-      opt.visu = true;
-      opt.n_particles = 300;
-      opt.n_iter = 300;
+      opt.visu = false;
+      opt.n_particles = 200;
+      if isfield(parameterArray{1},'PSOiterations')
+        opt.n_iter = parameterArray{1}.PSOiterations;
+      else
+        opt.n_iter = 150;
+      end
       opt.coupling = 5;
-			opt.parameter_names = paraNames;
-			
-			parameterArray{1}.fullConsoleOut = false;
-      evalSirLocalOneArgument= @(x) norm(optCovid(x, paraNames,...
-      parameterArray, RKIdata, false));
-      [paramCovBest, resMin] = pso(evalSirLocalOneArgument, lb, ub, opt);
+      opt.parameter_names = paraNames;
+      
+      parameterArray{1}.fullConsoleOut = false;
+      args = {paraNames, parameterArray, RKIdata};
+      [paramCovBest, resMin] = pso(@evalSirLocalOneArgument, args, lb, ub, opt);
     case "justVisualize"
       resMin = inf;
-			paraNames = {};
+      %parameterArray{1}.saveVTK = true;
+      paraNames = {};
       x0Cov = [];
       paramCovBest = x0Cov;
   endswitch
   
-	if or(nargin == 0, strcmp(optAlgorithm, "justVisualize"))
-		%%%%%%%% Show the Results %%%%%%%%
-		optCovid(paramCovBest, paraNames, parameterArray, RKIdata, true);
-		ind=find(ismember(paraNames,'startDate'));
-		dateInitial = paramCovBest(ind);
-		date = paramCovBest(ind);
-		for i=1:length(paraNames)
-			if i==ind
-				fprintf("%sInitial: %s %s: %s \n",  paraNames{i},...
-				datestr(dateInitial), paraNames{i}, datestr(date));
-			else
-				fprintf("%sInitial: %f %s: %f \n",  paraNames{i},...
-				x0Cov(i), paraNames{i}, paramCovBest(i));
-			end
-		end
-		fprintf("\nresnormCovid: %f\nCalculation took %f seconds\n", resMin, toc(tOpt)); 
-	end
-	
-	if nargout == 1	
-		varargout = paramCovBest;
-	elseif nargout == 2
-		varargout = {paramCovBest, resMin};
-	end		
+  if or(nargin == 0, strcmp(optAlgorithm, "justVisualize"))
+    %%%%%%%% Show the Results %%%%%%%%
+    optCovid(paramCovBest, paraNames, parameterArray, RKIdata, true);
+    ind=find(ismember(paraNames,'startDate'));
+    dateInitial = paramCovBest(ind);
+    date = paramCovBest(ind);
+       
+    %print final results console 
+    for i=1:length(paraNames)
+      if i==ind
+        fprintf("%sInitial: %s %s: %s \n",  paraNames{i},...
+        datestr(dateInitial), paraNames{i}, datestr(date));
+      else
+        fprintf("%sInitial: %f %s: %f \n",  paraNames{i},...
+        x0Cov(i), paraNames{i}, paramCovBest(i));
+      end
+    end
+    fprintf("\nresnormCovid: %f\nCalculation took %f seconds\n", resMin, toc(tOpt)); 
+  end
+  
+  if nargout == 1 
+    varargout = {paramCovBest};
+  elseif nargout == 2
+    varargout = {paramCovBest, resMin};
+  end  
+  
+  %write final results to .txt file
+  folder = ["../../Results/", parameterArray{1}.folderName];
+  fid = fopen([folder, "/protokoll_final.txt"], "a");
+  fprintf(fid, "\nresnormCovid: %f\nCalculation took %f seconds\n", resMin, toc(tOpt)); 
+  fprintf(fid, "\n");
+  for i=1:length(paraNames)
+##    if i==ind
+##      fprintf(fid, "%sInitial: %s %s: %s \n",  paraNames{i},...
+##      datestr(dateInitial), paraNames{i}, datestr(date));
+##    else
+      fprintf(fid, "%sInitial: %f %s: %f \n",  paraNames{i},...
+      x0Cov(i), paraNames{i}, paramCovBest(i));
+##    end
+  end
+  fprintf(fid, "\n");
+  fclose(fid);   
+  
 endfunction
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [paramCovBest, resMin] = runLsqNonlin(x0Cov, lb, ub,...
-	paraNames, parameterArray, RKIdata)  
-	%%%%%%%% Opt package and settings %%%%%%%%
-	pkg load optim;
-	opts = optimset();%("Algorithm", "levenberg-marquardt");
-	
-	% Try to load parallel package but only if its not 4.0.0
-	try
-		[dummy, info] = pkg('list');
-		findParallel = strcmp( cellfun( @(ind) ind.name, info, 'uni', false), {'parallel'} );
-		indParallel = find(findParallel==1);
-		version = info{indParallel}.version;
-		pkg load parallel;
-		if version == "4.0.0"
-			pkg unload parallel;
-		end    
-	catch
-		fprintf("No parallel package found or used, code will run serial.\n");
-	end_try_catch
-	
-	% Allocate memory for the parallel runs
-	nruns = parameterArray{1}.nRuns;
-	nparallel = nproc();
-	paramCovid = zeros(nruns, length(x0Cov));
-	resNormCovid = inf(nruns, 1);
-	runOptimOnce = @(x)lsqnonlinTwoRetvals(x, lb, ub, opts,...
-	paraNames, parameterArray, RKIdata, false);  
-	
-	% Best and initial solution
-	paramCovBest = x0Cov;
-	resMin = inf(1);
-	x0CovInit = x0Cov;
-	runs = 0;
-	nChunksPerCore = 4;
-	while runs < nruns
-		x0Array = {};
-		for i=1:nChunksPerCore*nparallel
-			if runs + i > nruns
-				break;
-			end    
-			% first run with initial paramters, following runs with varied parameters
-			x0Array{end+1} = x0Cov;
-			x0Cov = paramCovBest .* ((rand(size(paramCovBest)) - 0.5) * 0.5 + 1);
-			x0Cov(x0Cov>ub) = ub(x0Cov>ub);
-			x0Cov(x0Cov<lb) = lb(x0Cov<lb);
-		endfor
-		if exist("parcellfun.m", "file")
-			[a,b] = parcellfun (nparallel, runOptimOnce , x0Array, "UniformOutput", false);
-		else
-			[a,b] = arrayfun (runOptimOnce , x0Array, "UniformOutput", false);
-		endif
-		%% Save parameters to file
-		folder = ["../../Results/", parameterArray{1}.folderName];
-		fid = fopen([folder, "/protokoll.txt"], "a");
-		for i=1:length(a)
-			paramCovid(runs+i, :) = cell2mat(a(i));
-			resNormCovid(runs+i) = cell2mat(b(i));    
-			fprintf(fid, "Res: %f ", resNormCovid(runs+i));
-			for j= 1:length(x0Cov)
-				fprintf(fid, "%s: %f | ", paraNames{j}, paramCovid(runs+i, j));
-			end
-			fprintf(fid, "\n");
-		end  
-		fclose(fid);
-		
-		runs += length(b);
-		indexBest = find((min(resNormCovid) == resNormCovid), 1);
-		resMin = resNormCovid(indexBest);
-		paramCovBest = paramCovid(indexBest, :);
-	endwhile
+  paraNames, parameterArray, RKIdata)  
+  %%%%%%%% Opt package and settings %%%%%%%%
+  pkg load optim;
+  opts = optimset();%("Algorithm", "levenberg-marquardt");
+  ##  opts.TolFun = 1e-10;
+  
+  % Try to load parallel package but only if its not 4.0.0
+  try
+    [dummy, info] = pkg('list');
+    findParallel = strcmp( cellfun( @(ind) ind.name, info, 'uni', false), {'parallel'} );
+    indParallel = find(findParallel==1);
+    version = info{indParallel}.version;
+    pkg load parallel;
+    if version == "4.0.0"
+      pkg unload parallel;
+      fprintf("unloaded parallel:4.0.0 package, because it's not supported yet.\n");
+    end
+  catch
+    fprintf("No parallel package found or used, code will run serial.\n");
+  end_try_catch
+  
+  % Allocate memory for the parallel runs
+  nruns = parameterArray{1}.nRuns;
+  nparallel = nproc();
+  paramCovid = zeros(nruns, length(x0Cov));
+  resNormCovid = inf(nruns, 1);
+  runOptimOnce = @(x)lsqnonlinTwoRetvals(x, lb, ub, opts,...
+  paraNames, parameterArray, RKIdata, false);  
+  
+  % Best and initial solution
+  paramCovBest = x0Cov;
+  resMin = inf(1);
+  x0CovInit = x0Cov;
+  runs = 0;
+  nChunksPerCore = 4;
+  while runs < nruns
+    x0Array = {};
+    for i=1:nChunksPerCore*nparallel
+      if runs + i > nruns
+        break;
+      end    
+      % first run with initial paramters, following runs with varied parameters
+      x0Array{end+1} = x0Cov;
+      x0Cov = paramCovBest .* ((rand(size(paramCovBest)) - 0.5) * 0.5 + 1);
+      x0Cov(x0Cov>ub) = ub(x0Cov>ub);
+      x0Cov(x0Cov<lb) = lb(x0Cov<lb);
+    endfor
+    if exist("parcellfun.m", "file")
+      [a,b] = parcellfun (nparallel, runOptimOnce , x0Array, "UniformOutput", false);
+    else
+      [a,b] = arrayfun (runOptimOnce , x0Array, "UniformOutput", false);
+    endif
+    %% Save parameters to file
+    folder = ["../../Results/", parameterArray{1}.folderName];
+    fid = fopen([folder, "/protokoll.txt"], "a");
+    for i=1:length(a)
+      paramCovid(runs+i, :) = cell2mat(a(i));
+      resNormCovid(runs+i) = cell2mat(b(i));    
+      fprintf(fid, "Res: %f ", resNormCovid(runs+i));
+      for j= 1:length(x0Cov)
+        fprintf(fid, "%s: %f | ", paraNames{j}, paramCovid(runs+i, j));
+      end
+      fprintf(fid, "\n");
+    end  
+    fclose(fid);
+    
+    runs += length(b);
+    indexBest = find((min(resNormCovid) == resNormCovid), 1);
+    resMin = resNormCovid(indexBest);
+    paramCovBest = paramCovid(indexBest, :);
+  endwhile
 endfunction
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [paraRun, resRun] = lsqnonlinTwoRetvals(x0Cov, lb, ub, opts,...
-	paraNames, parameterArray, RKIdata, showPlots)  
-	opt = @(x)optCovid(x, paraNames, parameterArray, RKIdata, showPlots); 
-	try
-		if iscell(x0Cov)
-			x0Cov = cell2mat(x0Cov);
-		end     
-		[paraRun, resRun] = lsqnonlin(opt, x0Cov, lb, ub, opts);
-	catch
-		folder = ["../../Results/", parameterArray{1}.folderName];
-		fid = fopen([folder, "/protokoll.txt"], "a");
-		fprintf(fid, "Error ");
-		for j= 1:length(x0Cov)
-			fprintf(fid, "%s: %f | ", paraNames{j}, x0Cov(j));
-		end
-		fprintf(fid, "\n");
-		fclose(fid);
-		paraRun = inf(size(x0Cov));
-		resRun = inf(1);
-	end_try_catch  
+  paraNames, parameterArray, RKIdata, showPlots)  
+  opt = @(x)optCovid(x, paraNames, parameterArray, RKIdata, showPlots); 
+  try
+    if iscell(x0Cov)
+      x0Cov = cell2mat(x0Cov);
+    end     
+    [paraRun, resRun] = lsqnonlin(opt, x0Cov, lb, ub, opts);
+  catch
+    folder = ["../../Results/", parameterArray{1}.folderName];
+    fid = fopen([folder, "/protokoll.txt"], "a");
+    fprintf(fid, "Error ");
+    for j= 1:length(x0Cov)
+      fprintf(fid, "%s: %f | ", paraNames{j}, x0Cov(j));
+    end
+    fprintf(fid, "\n");
+    fclose(fid);
+    paraRun = inf(size(x0Cov));
+    resRun = inf(1);
+  end_try_catch  
 endfunction
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function retval = optCovid(xCov, paraNames, parameterArray, RKIdata, showPlots)
-	%% this is how a parameter struct can be loaded from a parameterfile
-	% alle Pfade sind so gesetzt das man im "Spatial" ordner starten muss,
-	% daher auch hier  
-	if iscell(xCov)
-		xCov = xCov{1};
-	endif
-	%vary paramters
-	for i=1:length(paraNames)
-		parameterArray{1} = setfield(parameterArray{1}, paraNames{i}, xCov(i));
-	end
-	
-	% Modell soll bis zum xx.yy.2020 laufen
-	parameterArray{1}.totalRuntime =...
-	parameterArray{1}.endDateOpt - parameterArray{1}.startDate;
-	startDateSim = parameterArray{1}.startDate; 
-	
-	%% run code and store the workspace to avoid io
-	workspaceCalculation = sir_spatial(parameterArray);
-	
-	%% load results statewise with ne new option to avoid io
-	stateWiseSIR = extractStatewiseResults (workspaceCalculation, "workspace",...
-	["../../Results/", parameterArray{1}.folderName, "/result.mat"]);
-	
-	##  for i=1:length(paraNames)
-	##    fprintf("%s= %f\n", paraNames{i}, xCov(i));
-	##  end
-	
-	timespan = [max([min(cell2mat(RKIdata{1}.time)), min(stateWiseSIR{1}.time + startDateSim)]),...
-	min([max(cell2mat(RKIdata{1}.time)), max(stateWiseSIR{1}.time + startDateSim)])];
-	times = linspace(timespan(1), timespan(2), 100); 
-	
-  darkFigures = sir_eqn_spatial ("getDarkFigureStatewise", parameterArray{1});	
-  for i=1:length(stateWiseSIR)
-    %%%%%%%%%%%%%%%%!!!!!!!!!!!!!!!!!!!!!!!%%%%%%%%%%%%%%%%%
-    % discovered = \int_0^t alpha * E * dT 
-    alpha = parameterArray{1}.gamma1 / (darkFigures(i) - 1);
-    splineE = spline(stateWiseSIR{i}.time, stateWiseSIR{i}.SIR_vs_time(:,4));
-    % Integriere E*alpha to get discovered (realy infected)
-    get_dDiscovering_dT = @(t_eq, x0) [alpha * ppval(splineE, t_eq)];
-    [t2, discovered] = ode23(get_dDiscovering_dT, [min(stateWiseSIR{i}.time),...
-    max(stateWiseSIR{i}.time)], stateWiseSIR{i}.SIR_vs_time(1,2));
-    % get solutionDiscovered at the same timesteps as the other solutions
-    solutionDiscovered = spline(t2, discovered, stateWiseSIR{i}.time);
-    
-    stateWiseSIR{i}.splineInfected = spline(stateWiseSIR{i}.time + startDateSim,...
-    solutionDiscovered);    
-    stateWiseSIR{i}.splineDead = spline(stateWiseSIR{i}.time + startDateSim, stateWiseSIR{i}.SIR_vs_time(:,5));
-    stateWiseSIR{i}.splineI = spline(stateWiseSIR{i}.time + startDateSim, stateWiseSIR{i}.SIR_vs_time(:,2));
-    stateWiseSIR{i}.splineR = spline(stateWiseSIR{i}.time + startDateSim, stateWiseSIR{i}.SIR_vs_time(:,3));
-    stateWiseSIR{i}.splineE = spline(stateWiseSIR{i}.time + startDateSim, stateWiseSIR{i}.SIR_vs_time(:,4));
-  end
-	
-	%write vector that contains data for each state 
-	simdataI = zeros(1,length(times)*length(stateWiseSIR));
-	simdataIslope = zeros(1,length(stateWiseSIR));
-	simdataD = zeros(1,length(times(end))*length(stateWiseSIR));
-	
-	wIstatewise = zeros(1,length(times)*length(stateWiseSIR));
-	wDstatewise = zeros(1,length(times(end))*length(stateWiseSIR));
-	
-	rkiI = zeros(1,length(times)*length(stateWiseSIR));
-	rkiIslope = zeros(1,length(stateWiseSIR));
-	rkiD = zeros(1,length(times(end))*length(stateWiseSIR));  
-	
-	wwI = parameterArray{1}.wRatioID;
-	wwD = 1 - parameterArray{1}.wRatioID;
-  wwISlope = parameterArray{1}.wISlope;
-	for i=1:length(stateWiseSIR)
-		simdataIstate = ppval(stateWiseSIR{i}.splineInfected, times);
-		simdataI(1, (i-1)*length(times)+1:i*length(times)) = simdataIstate;
-    simdataIslope(1, i) = diff(simdataIstate)(end);
-		
-		simdataDstate = ppval(stateWiseSIR{i}.splineDead, times(end));
-		simdataD(1, (i-1)*length(times(end))+1:i*length(times(end))) = simdataDstate;
-		
-		rkiIstate = ppval(RKIdata{i}.splineInfected, times);
-		rkiI(1, (i-1)*length(times)+1:i*length(times)) = rkiIstate;
-    rkiIslope(1, i) = diff(rkiIstate)(end);
-		wIstatewise(1, (i-1)*length(times)+1:i*length(times)) = wwI./max(rkiIstate);
-		
-		rkiDstate = ppval(RKIdata{i}.splineDead, times(end));
-		rkiD(1, (i-1)*length(times(end))+1:i*length(times(end))) = rkiDstate;
-		wDstatewise(1, (i-1)*length(times(end))+1:i*length(times(end))) = wwD./max(rkiDstate); 
-	end
-	
-	wIglob = wwI/max(rkiI);
-	wDglob = wwD/max(rkiD) * length(rkiI) / length(rkiD);
-  wIslope = wwISlope/max(rkiIslope) * length(rkiI) / length(rkiIslope);
-	
-	wDstatewise *= wwD * length(rkiI) / length(rkiD);
-	
-	ratio = parameterArray{1}.wRatioGlobStates;
-	wI = wIglob * (1 - ratio) + wIstatewise * ratio;
-	wD = wDglob * (1 - ratio) + wDstatewise * ratio;
-	
-	%opt function
-  if parameterArray{1}.optFunGermanSum 
-    % sum germany
-    retval = [sum(reshape((simdataI - rkiI) .* wI, length(simdataI)/length(stateWiseSIR),...
-    length(stateWiseSIR))', 1),...
-    sum(reshape((simdataD - rkiD) .* wD, length(simdataD)/length(stateWiseSIR),...
-    length(stateWiseSIR)), 2),...
-    sum(reshape((simdataIslope -rkiIslope) .* wIslope,...
-    length(simdataIslope)/length(stateWiseSIR), length(stateWiseSIR)), 2)];
-  else
-    retval = [(simdataI - rkiI) .* wI, (simdataD - rkiD) .* wD,...
-    (simdataIslope -rkiIslope) .* wIslope];
-	end
-	
-	folder = ["../../Results/", parameterArray{1}.folderName];
-	fid = fopen([folder, "/protokoll_lsqnonlin.txt"], "a");
-	fprintf(fid, "Res: %f ", norm(retval));
-	for j= 1:length(xCov)
-		fprintf(fid, "%s: %f | ", paraNames{j}, xCov(j));
-	end
-	fprintf(fid, "\n");
-	fclose(fid);  
-	
-	if showPlots
-		%sum up all states
-		rkiIsum =  sum(reshape(rkiI, length(times), length(stateWiseSIR)), 2);
-		rkiDsum =  sum(reshape(rkiD, length(times(end)), length(stateWiseSIR)), 2);
-		figure(17);
-		clf;
-		subplot(1,2,1), hold on;
-		subplot(1,2,2), hold on;
-		subplot(1,2,1), plot(times, rkiIsum, "-x");
-		subplot(1,2,2), plot(times(end), rkiDsum, "-x");
-		namesI = {"RKI infected (cumulated)"};
-		namesD = {"RKI dead"};
-		
-    simdataIsum =  sum(reshape(simdataI, length(times), length(stateWiseSIR)), 2);
-    subplot(1,2,1), plot(times, simdataIsum, "-o");
-    namesI{end + 1} = "Cummulated Infected";
-    simdataDsum =  sum(reshape(simdataD, length(times(end)), length(stateWiseSIR)), 2);
-    subplot(1,2,2), plot(times(end), simdataDsum, "-o");
-    namesD{end + 1} = "Dead";
-       
-		subplot(1,2,1), xlim([min(times), max(times)]);
-		subplot(1,2,1), ylim([0, max(rkiIsum)*1.5]);
-		subplot(1,2,1), legend(namesI);
-		subplot(1,2,1), datetick ("x", "dd.mm.yyyy", "keeplimits");
-		subplot(1,2,2), xlim([min(times), max(times)]);
-		subplot(1,2,2), ylim([0, max(rkiDsum)*1.5]);
-		subplot(1,2,2), legend(namesD);
-		subplot(1,2,2), datetick ("x", "dd.mm.yyyy", "keeplimits");
-		title("Germany");
-		fname = ["../../Results/", parameterArray{1}.folderName];
-		filename = "plot_Germany";
-		drawnow;
-		pause(0.3);
-		saveas(gcf, fullfile(fname, filename), 'jpeg');
-		
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		simdataI2 = zeros(1,length(times)*length(stateWiseSIR));
-		simdataR = zeros(1,length(times)*length(stateWiseSIR));
-		simdataE = zeros(1,length(times)*length(stateWiseSIR));
-		for i=1:length(stateWiseSIR)
-			simdataI2(1, (i-1)*length(times)+1:i*length(times)) = ppval(stateWiseSIR{i}.splineI, times);
-			simdataR(1, (i-1)*length(times)+1:i*length(times)) =...
-			ppval(stateWiseSIR{i}.splineR, times);
-			simdataE(1, (i-1)*length(times)+1:i*length(times)) =...
-			ppval(stateWiseSIR{i}.splineE, times);
-		end
-		simdataIplot =  reshape(simdataI, length(times), length(stateWiseSIR));
-		simdataI2plot = reshape(simdataI2, length(times), length(stateWiseSIR));
-		simdataRplot = reshape(simdataR, length(times), length(stateWiseSIR));
-		simdataEplot = reshape(simdataE, length(times), length(stateWiseSIR));
-		simdataDplot =  reshape(simdataD, length(times(end)), length(stateWiseSIR));
-		
-		%statewise plots
-		for i=1:length(RKIdata)
-			##    population = [2896712, 1841179, 7982448, 682986, 17932651, 6265809,...
-			##    4084844, 11069533, 13076721, 990509, 3644826, 2511917,...
-			##    1609675, 4077937, 2208321, 2143145];
-			if !parameterArray{1}.showStatePlots
-				break;
-			end
-			rkiIplot =  reshape(rkiI, length(times), length(stateWiseSIR));
-			rkiDplot =  reshape(rkiD, length(times(end)), length(stateWiseSIR));
-			
-			caseFatilityRateRKI = rkiDplot(end, i) / rkiIplot(end, i);
-			
-			figNum = figure;
-			subplot(1,2,1), hold on;
-			subplot(1,2,2), hold on;
-			subplot(1,2,1), plot(times, rkiIplot(:,i), "-x");
-			subplot(1,2,2), plot(times(end), rkiDplot(:,i), "-x");
-			namesI = {"RKI infected (cumulated)"};
-			namesD = {"RKI dead"};
-
-      subplot(1,2,1), plot(times, simdataIplot(:,i), "-o");
-      namesI{end + 1} = "Cummulated Infected";
-      subplot(1,2,1), plot(times, simdataI2plot(:,i));
-      namesI{end + 1} = "Infected (with symptoms)";
-      subplot(1,2,1), plot(times, simdataRplot(:,i));
-      namesI{end + 1} = "Recovered";
-      subplot(1,2,1), plot(times, simdataEplot(:,i));
-      namesI{end + 1} = "Exposed + no symptoms";     
-      subplot(1,2,2), plot(times(end), simdataDplot(:,i), "-o");
-      namesD{end + 1} = "Dead";
-
-			subplot(1,2,1), xlim([min(times), max(times)]);
-			subplot(1,2,1), ylim([0, max(rkiIplot(:,i))*1.5]);
-			subplot(1,2,1), legend(namesI);
-			subplot(1,2,1), datetick ("x", "dd.mm.yyyy", "keeplimits");
-			subplot(1,2,2), xlim([min(times), max(times)]);
-			subplot(1,2,2), ylim([0, max(max(rkiDplot(:,i))*1.5 ,1)]);
-			subplot(1,2,2), legend(namesD);
-			subplot(1,2,2), datetick ("x", "dd.mm.yyyy", "keeplimits");
-			
-			caseFatilityRateSim = simdataDplot(end, i)/simdataIplot(end, i);
-			fprintf("%f, ", rkiIplot(end, i)/simdataIplot(end, i));
-			
-			name = [RKIdata{i}.name, " df_error: ",...
-			num2str(caseFatilityRateRKI / caseFatilityRateSim),...
-			" Ratio rkiI/simI: ", num2str(rkiIplot(end, i)/simdataIplot(end, i))];
-			set(figNum, 'Name', name);
-			fname = ["../../Results/", parameterArray{1}.folderName];
-			filename = ["plot_", RKIdata{i}.name];
-			drawnow;
-			pause(0.3);
-			saveas(gcf, fullfile(fname, filename), 'jpeg');
-		endfor
-	endif
-endfunction

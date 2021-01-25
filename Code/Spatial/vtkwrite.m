@@ -59,7 +59,8 @@ function vtkwrite( filename,dataType,varargin )
   %  
   %  Version 2.3
   %  Copyright, Chaoyuan Yeh, 2016
-  %  Codes are modified from William Thielicke and David Gingras's submission.    
+  %  Codes are modified from William Thielicke and David Gingras's submission.   
+  %  Codes are further modified by us.    
   if strcmpi(filename,'execute'), filename = 'matlab_export.vtk'; end
     fid = fopen(filename, 'w'); 
     % VTK files contain five major parts
@@ -246,17 +247,17 @@ function vtkwrite( filename,dataType,varargin )
                   ntetra = length(varargin{5});
                   fprintf(fid,'\nPOLYGONS %d %d\n',ntetra,5*ntetra);
                   fprintf(fid,'4 %d %d %d %d\n',(varargin{5}-1)');
-								case 'POLYGON'
-									polys = varargin{5};
+                case 'POLYGON'
+                  polys = varargin{5};
                   npolys = length(polys);
-									nPointsPoly = 0;
-									outStr = "";
-									for i=1:length(polys)
-										nPointsPoly += length(polys{i});
-										outStr = [outStr, num2str(length(polys{i})), " ",...
-										sprintf("%d ", polys{i}(1:end-1)-1),...
-										sprintf("%d\n", polys{i}(end)-1)];
-									end	
+                  nPointsPoly = 0;
+                  outStr = "";
+                  for i=1:length(polys)
+                    nPointsPoly += length(polys{i});
+                    outStr = [outStr, num2str(length(polys{i})), " ",...
+                    sprintf("%d ", polys{i}(1:end-1)-1),...
+                    sprintf("%d\n", polys{i}(end)-1)];
+                  end 
                   fprintf(fid,'\nPOLYGONS %d %d\n',npolys,npolys+nPointsPoly);
                   fprintf(fid,'%s', outStr);
                 end  
@@ -266,11 +267,11 @@ function vtkwrite( filename,dataType,varargin )
                   posLinesKeyword = find(strcmpi(upper(varargin), 'LINES'));
                   if posLinesKeyword > 1
                     
-										##                    if mod(n_elements,2)==0
-										##                      nbLine = 2*n_elements-2;
-										##                    else
-										##                      nbLine = 2*(n_elements-1);
-										##                    end
+                    ##                    if mod(n_elements,2)==0
+                    ##                      nbLine = 2*n_elements-2;
+                    ##                    else
+                    ##                      nbLine = 2*(n_elements-1);
+                    ##                    end
                     
                     nbLine = size(varargin{posLinesKeyword + 1}, 1);  
                     fprintf(fid,'\nLINES %d %d\n',nbLine,3*nbLine);                  
@@ -289,12 +290,12 @@ function vtkwrite( filename,dataType,varargin )
                 end                
                 if any(strcmpi(upper(varargin), 'VALUES'))
                   vals = varargin{find(strcmpi(upper(varargin), 'VALUES')) + 1};
-									if mod(size(vals, 1),3)==1
-										vals(end+1,:) = zeros(1, size(vals,2));	
-										vals(end+1,:) = zeros(1, size(vals,2));	
-									elseif mod(n_elements,3)==2
-										vals(end+1,:) = zeros(1, size(vals,2));	
-									end
+                  if mod(size(vals, 1),3)==1
+                    vals(end+1,:) = zeros(1, size(vals,2)); 
+                    vals(end+1,:) = zeros(1, size(vals,2)); 
+                  elseif mod(n_elements,3)==2
+                    vals(end+1,:) = zeros(1, size(vals,2)); 
+                  end
                 end     
                 if size(vals, 1) != length(x)
                   error("Missmatch number of values and number of points.");

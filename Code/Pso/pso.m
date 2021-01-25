@@ -1,4 +1,8 @@
-function [solution, residuum] = pso(fun, lb, ub, opt)
+% Particle Swarm Optimization adjusted for version 4 of the parallel package
+% fun: a reference to a funciton taking `x` and a list of arguments
+% args: the list of arguments to `fun`
+% ...
+function [solution, residuum] = pso(fun, args, lb, ub, opt)
 	% add missing fields to opt struct
 	if nargin == 3
 		opt = get_opt(length(lb));
@@ -60,7 +64,7 @@ function [solution, residuum] = pso(fun, lb, ub, opt)
 
 	    % Update local and global attractors by evaluating function fun at current position
 		t1 = tic;
-		swarm = update_attractors(swarm, fun, opt);
+		swarm = update_attractors(swarm, fun, args, opt);
 		if and(opt. parallel, toc(t1) < 1)
 			opt.parallel = false;
 			fprintf("Switched to serial execution since problem is small\n");
@@ -70,6 +74,15 @@ function [solution, residuum] = pso(fun, lb, ub, opt)
 		res(iter) = min(swarm.y_p_glob);
 		sol(iter,:) = swarm.p_glob(find(swarm.y_p_glob == res(iter), 1), :);
 
+    folder = ["../../Results/", args{2}{1}.folderName];
+    fid = fopen([folder, "/protokoll_pso.txt"], "a");
+    fprintf(fid, "Res: %f ", res(iter));
+    for j=1:length(sol(iter,:))
+      fprintf(fid, "%s: %f | ", opt.parameter_names{j}, sol(iter,j));
+    end
+    fprintf(fid, "\n");
+    fclose(fid);  
+    
 		% Logging, Visualization
 		% Progress
 		if (swarm.visu.progress.n != 0)
@@ -133,22 +146,30 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function swarm = update_attractors(swarm, fun, opt)
+function swarm = update_attractors(swarm, fun, args, opt)
 	% Compute function value y at current position
 	##  y = zeros(swarm.n, 1);
 	##  for i = 1:swarm.n
 	##    y(i) = fun(swarm.x(i, :));
 	##  end
+	% create cell array of argument cell arrays
+	args_cells = cell(length(swarm.x),1);
+	args_cells(:) = {args};
+	data_cells = mat2cell(swarm.x, ones(1, swarm.n), size(swarm.x, 2));
+	% run fun parallel or seriel
 	if opt.parallel
-		nparallel = nproc() - 1;
+		% number of cores to use - maximum of 30 to not overload the server
+		nparallel = min(nproc()-3, 30);
 		t1 = tic;
-		y = parcellfun(nparallel, fun, mat2cell(swarm.x, ones(1, swarm.n), size(swarm.x, 2)));
+		% run in parallel
+		% y = cellfun(fun, data_cells, args_cells);
+		y = parcellfun(nparallel, fun, data_cells, args_cells, "VerboseLevel", 1);
 		##      [a,b] = parcellfun (nparallel, runOptimOnce , x0Array, "UniformOutput", false);
 	else
 		if (opt.vectorized_function_evaluation == false)
-			y = arrayfun(fun, mat2cell(swarm.x, ones(1, swarm.n), size(swarm.x, 2)));
+			y = cellfun(fun, data_cells, args_cells);
 		else
-			y = fun(swarm.x);
+			y = fun(swarm.x, args);
 		end
 	end
 	

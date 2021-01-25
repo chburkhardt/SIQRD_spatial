@@ -1,0 +1,403 @@
+Infiziertenzahlen (RKI, nach Erkrankungsdatum, Stand 20.05.2020);;;
+AGS;11.04.2020;25.04.2020;Landkreis/kreisfreie Stadt - Name
+01001;0;0;Flensburg, Stadt
+01002;2;1;Kiel, Landeshauptstadt
+01003;2;0;LÅbeck, Hansestadt
+01004;1;0;NeumÅnster, Stadt
+01051;1;0;Dithmarschen
+01053;1;0;Herzogtum Lauenburg
+01054;1;0;Nordfriesland
+01055;0;0;Ostholstein
+01056;4;2;Pinneberg
+01057;0;0;Plîn
+01058;1;0;Rendsburg-Eckernfîrde
+01059;2;2;Schleswig-Flensburg
+01060;1;1;Segeberg
+01061;0;1;Steinburg
+01062;4;3;Stormarn
+02000;59;33;Hamburg, Freie und Hansestadt
+03101;2;1;Braunschweig, Stadt
+03102;1;0;Salzgitter, Stadt
+03103;0;0;Wolfsburg, Stadt
+03151;0;0;Gifhorn
+03153;3;2;Goslar
+03154;0;3;Helmstedt
+03155;4;0;Northeim
+03157;0;0;Peine
+03158;1;0;WolfenbÅttel
+03159;11;6;Gîttingen
+03241;18;23;Region Hannover
+03251;5;1;Diepholz
+03252;2;1;Hameln-Pyrmont
+03254;5;3;Hildesheim
+03255;0;0;Holzminden
+03256;0;2;Nienburg (Weser)
+03257;2;0;Schaumburg
+03351;3;2;Celle
+03352;0;2;Cuxhaven
+03353;9;2;Harburg
+03354;0;1;LÅchow-Dannenberg
+03355;1;0;LÅneburg
+03356;1;2;Osterholz
+03357;0;0;Rotenburg (WÅmme)
+03358;1;0;Heidekreis
+03359;1;0;Stade
+03360;1;0;Uelzen
+03361;0;0;Verden
+03401;0;0;Delmenhorst, Stadt
+03402;0;0;Emden, Stadt
+03403;0;0;Oldenburg (Oldenburg), Stadt
+03404;6;1;OsnabrÅck, Stadt
+03405;0;0;Wilhelmshaven, Stadt
+03451;7;0;Ammerland
+03452;0;0;Aurich
+03453;3;2;Cloppenburg
+03454;12;0;Emsland
+03455;0;0;Friesland
+03456;6;3;Grafschaft Bentheim
+03457;5;0;Leer
+03458;3;1;Oldenburg (Kreis)
+03459;6;5;OsnabrÅck
+03460;3;1;Vechta
+03461;0;0;Wesermarsch
+03462;0;0;Wittmund
+04011;10;17;Bremen, Stadt
+04012;0;3;Bremerhaven, Stadt
+05111;9;5;DÅsseldorf, Stadt
+05112;10;17;Duisburg, Stadt
+05113;7;3;Essen, Stadt
+05114;5;6;Krefeld, Stadt
+05116;7;7;Mînchengladbach, Stadt
+05117;7;0;MÅlheim an der Ruhr, Stadt
+05119;3;3;Oberhausen, Stadt
+05120;3;2;Remscheid, Stadt
+05122;4;0;Solingen, Klingenstadt
+05124;16;9;Wuppertal, Stadt
+05154;24;3;Kleve
+05158;10;2;Mettmann
+05162;7;5;Rhein-Kreis Neuss
+05166;8;9;Viersen
+05170;4;2;Wesel
+05314;8;13;Bonn, Stadt
+05315;20;6;Kîln, Stadt
+05316;2;1;Leverkusen, Stadt
+05334;18;2;StÑdteregion Aachen
+05358;8;1;DÅren
+05362;13;10;Rhein-Erft-Kreis
+05366;6;4;Euskirchen
+05370;21;7;Heinsberg
+05374;5;2;Oberbergischer Kreis
+05378;4;1;Rheinisch-Bergischer Kreis
+05382;19;10;Rhein-Sieg-Kreis
+05512;2;4;Bottrop, Stadt
+05513;4;5;Gelsenkirchen, Stadt
+05515;1;0;MÅnster, Stadt
+05554;8;2;Borken
+05558;4;4;Coesfeld
+05562;19;14;Recklinghausen
+05566;9;8;Steinfurt
+05570;7;2;Warendorf
+05711;8;2;Bielefeld, Stadt
+05754;6;1;GÅtersloh
+05758;5;2;Herford
+05762;3;2;Hîxter
+05766;8;3;Lippe
+05770;2;2;Minden-LÅbbecke
+05774;20;1;Paderborn
+05911;4;1;Bochum, Stadt
+05913;6;4;Dortmund, Stadt
+05914;16;5;Hagen, Stadt der FernUniversitÑt
+05915;3;2;Hamm, Stadt
+05916;0;1;Herne, Stadt
+05954;4;6;Ennepe-Ruhr-Kreis
+05958;6;0;Hochsauerlandkreis
+05962;17;5;MÑrkischer Kreis
+05966;13;6;Olpe
+05970;2;3;Siegen-Wittgenstein
+05974;3;3;Soest
+05978;7;6;Unna
+06411;1;1;Darmstadt, Wissenschaftsstadt
+06412;22;9;Frankfurt am Main, Stadt
+06413;3;5;Offenbach am Main, Stadt
+06414;1;3;Wiesbaden, Landeshauptstadt
+06431;4;0;Bergstra·e
+06432;4;0;Darmstadt-Dieburg
+06433;2;2;Gro·-Gerau
+06434;3;1;Hochtaunuskreis
+06435;14;9;Main-Kinzig-Kreis
+06436;1;2;Main-Taunus-Kreis
+06437;7;2;Odenwaldkreis
+06438;5;3;Offenbach
+06439;1;2;Rheingau-Taunus-Kreis
+06440;7;1;Wetteraukreis
+06531;2;1;Gie·en
+06532;1;0;Lahn-Dill-Kreis
+06533;3;4;Limburg-Weilburg
+06534;0;1;Marburg-Biedenkopf
+06535;0;1;Vogelsbergkreis
+06611;5;4;Kassel, documenta-Stadt
+06631;2;0;Fulda
+06632;8;0;Hersfeld-Rotenburg
+06633;8;3;Kassel (Kreis)
+06634;7;7;Schwalm-Eder-Kreis
+06635;1;1;Waldeck-Frankenberg
+06636;20;2;Werra-Mei·ner-Kreis
+07111;3;1;Koblenz, kreisfreie Stadt
+07131;1;1;Ahrweiler
+07132;2;3;Altenkirchen (Westerwald)
+07133;0;0;Bad Kreuznach
+07134;1;1;Birkenfeld
+07135;0;0;Cochem-Zell
+07137;7;0;Mayen-Koblenz
+07138;0;0;Neuwied
+07140;1;0;Rhein-HunsrÅck-Kreis
+07141;3;0;Rhein-Lahn-Kreis
+07143;4;1;Westerwaldkreis
+07211;1;0;Trier, kreisfreie Stadt
+07231;1;1;Bernkastel-Wittlich
+07232;5;0;Eifelkreis Bitburg-PrÅm
+07233;1;0;Vulkaneifel
+07235;0;0;Trier-Saarburg
+07311;0;1;Frankenthal (Pfalz), kreisfreie Stadt
+07312;1;0;Kaiserslautern, kreisfreie Stadt
+07313;0;0;Landau in der Pfalz, kreisfreie Stadt
+07314;8;1;Ludwigshafen am Rhein, kreisfreie Stadt
+07315;5;3;Mainz, kreisfreie Stadt
+07316;0;0;Neustadt an der Weinstra·e, kreisfreie Stadt
+07317;0;0;Pirmasens, kreisfreie Stadt
+07318;1;3;Speyer, kreisfreie Stadt
+07319;3;1;Worms, kreisfreie Stadt
+07320;0;0;ZweibrÅcken, kreisfreie Stadt
+07331;8;4;Alzey-Worms
+07332;5;1;Bad DÅrkheim
+07333;0;0;Donnersbergkreis
+07334;2;0;Germersheim
+07335;2;0;Kaiserslautern
+07336;0;0;Kusel
+07337;2;0;SÅdliche Weinstra·e
+07338;2;3;Rhein-Pfalz-Kreis
+07339;2;0;Mainz-Bingen
+07340;4;0;SÅdwestpfalz
+08111;8;10;Stuttgart, Stadtkreis
+08115;32;3;Bîblingen
+08116;23;9;Esslingen
+08117;5;4;Gîppingen
+08118;23;4;Ludwigsburg
+08119;18;35;Rems-Murr-Kreis
+08121;10;1;Heilbronn, Stadtkreis
+08125;6;2;Heilbronn
+08126;9;2;Hohenlohekreis
+08127;12;2;SchwÑbisch Hall
+08128;12;2;Main-Tauber-Kreis
+08135;24;2;Heidenheim
+08136;156;18;Ostalbkreis
+08211;1;0;Baden-Baden, Stadtkreis
+08212;3;1;Karlsruhe, Stadtkreis
+08215;8;0;Karlsruhe
+08216;8;5;Rastatt
+08221;0;5;Heidelberg, Stadtkreis
+08222;4;4;Mannheim, Stadtkreis
+08225;4;2;Neckar-Odenwald-Kreis
+08226;3;0;Rhein-Neckar-Kreis
+08231;5;4;Pforzheim, Stadtkreis
+08235;33;3;Calw
+08236;29;17;Enzkreis
+08237;18;1;Freudenstadt
+08311;13;2;Freiburg im Breisgau, Stadtkreis
+08315;12;5;Breisgau-Hochschwarzwald
+08316;4;0;Emmendingen
+08317;8;10;Ortenaukreis
+08325;8;4;Rottweil
+08326;15;3;Schwarzwald-Baar-Kreis
+08327;3;33;Tuttlingen
+08335;7;3;Konstanz
+08336;8;10;Lîrrach
+08337;5;3;Waldshut
+08415;52;26;Reutlingen
+08416;7;1;TÅbingen
+08417;21;17;Zollernalbkreis
+08421;0;3;Ulm, Stadtkreis
+08425;3;4;Alb-Donau-Kreis
+08426;8;6;Biberach
+08435;1;1;Bodenseekreis
+08436;2;0;Ravensburg
+08437;10;0;Sigmaringen
+09161;10;3;Ingolstadt
+09162;75;56;MÅnchen, Landeshauptstadt
+09163;22;4;Rosenheim (Stadt)
+09171;9;1;Altîtting
+09172;3;1;Berchtesgadener Land
+09173;3;1;Bad Tîlz-Wolfratshausen
+09174;11;11;Dachau
+09175;1;5;Ebersberg
+09176;7;1;EichstÑtt
+09177;8;0;Erding
+09178;10;1;Freising
+09179;9;7;FÅrstenfeldbruck
+09180;5;1;Garmisch-Partenkirchen
+09181;6;1;Landsberg am Lech
+09182;0;1;Miesbach
+09183;10;2;MÅhldorf a.Inn
+09184;6;9;MÅnchen
+09185;3;4;Neuburg-Schrobenhausen
+09186;1;1;Pfaffenhofen a.d.Ilm
+09187;35;38;Rosenheim (Kreis)
+09188;3;1;Starnberg
+09189;13;15;Traunstein
+09190;7;0;Weilheim-Schongau
+09261;5;0;Landshut
+09262;1;0;Passau (Stadt)
+09263;9;1;Straubing (Stadt)
+09271;4;0;Deggendorf
+09272;0;4;Freyung-Grafenau
+09273;2;2;Kelheim
+09274;9;2;Landshut
+09275;9;6;Passau (Kreis)
+09276;0;1;Regen
+09277;2;2;Rottal-Inn
+09278;8;3;Straubing-Bogen
+09279;2;2;Dingolfing-Landau
+09361;2;0;Amberg
+09362;4;3;Regensburg (Stadt)
+09363;3;4;Weiden i.d.OPf.
+09371;13;0;Amberg-Sulzbach
+09372;0;3;Cham
+09373;9;0;Neumarkt i.d.OPf.
+09374;14;10;Neustadt a.d.Waldnaab
+09375;2;3;Regensburg (Kreis)
+09376;9;0;Schwandorf
+09377;1;1;Tirschenreuth
+09461;1;1;Bamberg (Stadt)
+09462;4;1;Bayreuth (Stadt)
+09463;0;1;Coburg (Stadt)
+09464;1;0;Hof (Stadt)
+09471;3;0;Bamberg (Kreis)
+09472;6;0;Bayreuth (Kreis)
+09473;4;2;Coburg (Kreis)
+09474;3;0;Forchheim
+09475;4;1;Hof (Kreis)
+09476;1;1;Kronach
+09477;4;5;Kulmbach
+09478;0;4;Lichtenfels
+09479;9;1;Wunsiedel i.Fichtelgebirge
+09561;2;4;Ansbach
+09562;1;1;Erlangen
+09563;5;3;FÅrth (Stadt)
+09564;25;4;NÅrnberg
+09565;1;0;Schwabach
+09571;6;8;Ansbach
+09572;1;0;Erlangen-Hîchstadt
+09573;3;2;FÅrth (Land)
+09574;15;1;NÅrnberger Land
+09575;13;3;Neustadt a.d.Aisch-Bad Windsheim
+09576;5;1;Roth
+09577;0;3;Wei·enburg-Gunzenhausen
+09661;1;0;Aschaffenburg (stadt)
+09662;0;1;Schweinfurt(Stadt)
+09663;8;2;WÅrzburg (Stadt)
+09671;8;2;Aschaffenburg
+09672;8;3;Bad Kissingen
+09673;5;6;Rhîn-Grabfeld
+09674;5;0;Ha·berge
+09675;1;2;Kitzingen
+09676;3;1;Miltenberg
+09677;0;1;Main-Spessart
+09678;6;11;Schweinfurt (Kreis)
+09679;8;0;WÅrzburg (Kreis)
+09761;4;2;Augsburg (Stadt)
+09762;4;0;Kaufbeuren
+09763;4;0;Kempten (AllgÑu)
+09764;2;0;Memmingen
+09771;2;2;Aichach-Friedberg
+09772;3;1;Augsburg (Kreis)
+09773;26;8;Dillingen a.d.Donau
+09774;0;1;GÅnzburg
+09775;6;1;Neu-Ulm
+09776;0;0;Lindau (Bodensee)
+09777;18;0;OstallgÑu
+09778;5;0;UnterallgÑu
+09779;3;6;Donau-Ries
+09780;0;0;OberallgÑu
+10041;11;6;Regionalverband SaarbrÅcken
+10042;1;1;Merzig-Wadern
+10043;2;0;Neunkirchen
+10044;5;2;Saarlouis
+10045;4;0;Saarpfalz-Kreis
+10046;2;0;St. Wendel
+11000;75;48;Berlin, Stadt
+12051;1;0;Brandenburg an der Havel, Stadt
+12052;0;0;Cottbus, Stadt
+12053;0;1;Frankfurt (Oder), Stadt
+12054;15;5;Potsdam, Stadt
+12060;12;5;Barnim
+12061;0;5;Dahme-Spreewald
+12062;0;0;Elbe-Elster
+12063;3;2;Havelland
+12064;3;1;MÑrkisch-Oderland
+12065;1;1;Oberhavel
+12066;2;0;Oberspreewald-Lausitz
+12067;1;2;Oder-Spree
+12068;0;1;Ostprignitz-Ruppin
+12069;4;5;Potsdam-Mittelmark
+12070;0;0;Prignitz
+12071;0;0;Spree-Nei·e
+12072;0;1;Teltow-FlÑming
+12073;0;0;Uckermark
+13003;0;0;Rostock
+13004;0;0;Schwerin
+13071;1;0;Mecklenburgische Seenplatte
+13072;1;0;Landkreis Rostock
+13073;1;1;Vorpommern-RÅgen
+13074;0;1;Nordwestmecklenburg
+13075;8;1;Vorpommern-Greifswald
+13076;0;2;Ludwigslust-Parchim
+14511;2;1;Chemnitz, Stadt
+14521;5;1;Erzgebirgskreis
+14522;6;0;Mittelsachsen
+14523;6;5;Vogtlandkreis
+14524;13;4;Zwickau
+14612;5;3;Dresden, Stadt
+14625;13;3;Bautzen
+14626;1;1;Gîrlitz
+14627;3;0;Mei·en
+14628;4;0;SÑchsische Schweiz-Osterzgebirge
+14713;5;5;Leipzig, Stadt
+14729;1;1;Leipzig
+14730;3;0;Nordsachsen
+15001;4;0;Dessau-Ro·lau, Stadt
+15002;6;2;Halle (Saale), Stadt
+15003;1;0;Magdeburg, Landeshauptstadt
+15081;0;0;Altmarkkreis Salzwedel
+15082;0;0;Anhalt-Bitterfeld
+15083;0;0;Bîrde
+15084;1;0;Burgenlandkreis
+15085;4;5;Harz
+15086;0;0;Jerichower Land
+15087;0;1;Mansfeld-SÅdharz
+15088;0;0;Saalekreis
+15089;0;0;Salzlandkreis
+15090;2;1;Stendal
+15091;0;0;Wittenberg
+16051;1;0;Erfurt, Stadt
+16052;2;1;Gera, Stadt
+16053;0;1;Jena, Stadt
+16054;1;0;Suhl, Stadt
+16055;0;0;Weimar, Stadt
+16056;1;1;Eisenach, Stadt
+16061;1;3;Eichsfeld
+16062;3;1;Nordhausen
+16063;1;0;Wartburgkreis
+16064;2;0;Unstrut-Hainich-Kreis
+16065;0;0;KyffhÑuserkreis
+16066;0;0;Schmalkalden-Meiningen
+16067;7;3;Gotha
+16068;0;0;Sîmmerda
+16069;1;0;Hildburghausen
+16070;0;0;Ilm-Kreis
+16071;0;0;Weimarer Land
+16072;1;1;Sonneberg
+16073;0;0;Saalfeld-Rudolstadt
+16074;0;0;Saale-Holzland-Kreis
+16075;4;1;Saale-Orla-Kreis
+16076;4;15;Greiz
+16077;0;0;Altenburger Land

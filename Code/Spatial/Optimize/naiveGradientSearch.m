@@ -26,17 +26,23 @@
 function retval = naiveGradientSearch (input1, input2)
 	close all;
 	% Parameter and rkiData
-	parameterArray = getParameterArray();	
+  if nargin == 0
+	  parameterArray = getParameterArray();	
+  else
+    parameterArray = input1;
+  end
 	RKIdata = getRKIdata();
 	
 	% set opt part in parameters
   parameterArray{1}.paraNamesOpt = {"beta_cross_county"};
   parameterArray{1}.x0CovOpt = [1]; 
-  variations = ones(1, length(parameterArray{1}.paraNamesOpt)) * 0.2;
+  variations = ones(1, length(parameterArray{1}.paraNamesOpt)) * 0.4;
   parameterArray{1}.lbOpt = parameterArray{1}.x0CovOpt .* (1 - variations);
   parameterArray{1}.ubOpt = parameterArray{1}.x0CovOpt .* (1 + variations);	
   parameterArray{1}.optAlgorithmOpt = "lsqnonlin"; %lsqnonlin|pso|justVisualize
 	
+  mkdir(["../../Results/", parameterArray{1}.folderName]);
+  
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% calculate reduced to states result	
 	parameterArray{1}.reduceToStates= true;
@@ -45,8 +51,14 @@ function retval = naiveGradientSearch (input1, input2)
 		persistent stateWiseSIRSW = extractStatewiseResults (workspaceCalculationSW, "workspace",...
 		["../../Results/", parameterArray{1}.folderName, "/result.mat"]);
 		for i=1:length(stateWiseSIRSW)
-			stateWiseSIRSW{i}.splineDiscovered = spline(stateWiseSIRSW{i}.time +...
-			parameterArray{1}.startDate, stateWiseSIRSW{i}.SIR_vs_time(:,6)); 
+			switch parameterArray{1}.model
+				case "SIREDmod"					
+					stateWiseSIRSW{i}.splineDiscovered = spline(stateWiseSIRSW{i}.time +...
+					parameterArray{1}.startDate, stateWiseSIRSW{i}.SIR_vs_time(:,6)); 
+				case "SIRH"
+					stateWiseSIRSW{i}.splineDiscovered = spline(stateWiseSIRSW{i}.time +...
+					parameterArray{1}.startDate, stateWiseSIRSW{i}.SIR_vs_time(:,9));  
+			endswitch
 		end
 	end
 	timespan = [max([min(cell2mat(RKIdata{1}.time)),...
@@ -63,14 +75,25 @@ function retval = naiveGradientSearch (input1, input2)
 	
 	%% run code and store the workspace to avoid io
 	parameterArray{1}.reduceToStates= false;
-  parameterArray{1}.optAlgorithmOpt = "justVisualize"; %lsqnonlin|pso|justVisualize
+	##		parameterArray{1}.beta_cross_county = rand(16,1)+0.5; %TODO remove this
+  parameterArray{1}.optAlgorithmOpt = "lsqnonlin"; %lsqnonlin|pso|justVisualize
 	parameterArray{1}.showStatePlots = false;
-	parameterArray{1}.beta_cross_county	= 0.525; 	
+	##	plotAllStates = true;
+	##	##	% For the countywise model
+	##	parameterArray{1}.reduceToStates= false;
+	parameterArray{1}.beta_cross_county	= 1; % 1.08 ohne ss to cs anpassung
+	parameterArray{1}.beta_cc_statewise = ones(16,1);
+	##  parameterArray{1}.beta_cross_county	= 0.9; % 0.8 ist noch etwas zu hoch, probiere 0.73
+	%optimizeStateWise (parameterArray);
+	
 	
 	counter = 0;
 	optVals = ones(1, length(rkiData)).*parameterArray{1}.beta_cross_county';
 	residuum = [];
+  folder = ["../../Results/", parameterArray{1}.folderName];
+  
 	while counter < 100
+    fid = fopen([folder, "/protokoll_naiveGradientSearch.txt"], "a");
 		t1 = tic;
 		workspaceCalculation = sir_spatial(parameterArray);
 		
@@ -78,14 +101,22 @@ function retval = naiveGradientSearch (input1, input2)
 		stateWiseSIR = extractStatewiseResults (workspaceCalculation, "workspace",...
 		["../../Results/", parameterArray{1}.folderName, "/result.mat"]);
 		for i=1:length(stateWiseSIR)
-			stateWiseSIR{i}.splineDiscovered = spline(stateWiseSIR{i}.time +...
-			parameterArray{1}.startDate, stateWiseSIR{i}.SIR_vs_time(:,6)); 
+			switch parameterArray{1}.model
+				case "SIREDmod"					
+					stateWiseSIR{i}.splineDiscovered = spline(stateWiseSIR{i}.time +...
+					parameterArray{1}.startDate, stateWiseSIR{i}.SIR_vs_time(:,6)); 
+				case "SIRH"
+					stateWiseSIR{i}.splineDiscovered = spline(stateWiseSIR{i}.time +...
+					parameterArray{1}.startDate, stateWiseSIR{i}.SIR_vs_time(:,9)); 
+			endswitch
 		end
 		simData = zeros(length(stateWiseSIR) ,1);
 		for i=1:length(stateWiseSIR)
 			simData(i) = ppval(stateWiseSIR{i}.splineDiscovered, time);		
 		end
-
+		##		ratioSW = simDataSW ./ rkiData;
+		##		ratioCW = simData ./ rkiData;
+		
 		ratio = (simDataSW - simData)./simDataSW;
 		maxScalePerStep = 0.25;
 		exponent = 1.5;		
@@ -96,9 +127,9 @@ function retval = naiveGradientSearch (input1, input2)
 		
 		residuum(end+1,:) = ratio;
 		
-		parameterArray{1}.beta_cross_county .*=...
+		parameterArray{1}.beta_cc_statewise .*=...
 		(1 + sign(scaleFactors).*abs(scaleFactors).^exponent); 
-		optVals(end+1, :) = parameterArray{1}.beta_cross_county;
+		optVals(end+1, :) = parameterArray{1}.beta_cc_statewise;
 		counter += 1;
 		if counter > 1
 			figure(20);
@@ -106,8 +137,19 @@ function retval = naiveGradientSearch (input1, input2)
 			plot(optVals);
 			pause(0.2);
 		end
-		fprintf("Iteration: %i took %fs with res: %f Parameters: ", counter, toc(t1), norm(residuum(end)));
-		fprintf("%f ", parameterArray{1}.beta_cross_county);
+    %save .txt file
+		fprintf(fid, "Iteration: %i took %fs with res: %f Parameters: ", counter, toc(t1), norm(residuum(end)));
+		fprintf(fid, "%f ", parameterArray{1}.beta_cc_statewise);
+		fprintf(fid, "\n");
+		if norm(residuum(end)) < 1e-4
+			fprintf(fid, "Terminate due to small enough residuum");
+			break;
+		end	
+    fprintf(fid, "\n");
+    fclose(fid);   
+    %console output
+    fprintf("Iteration: %i took %fs with res: %f Parameters: ", counter, toc(t1), norm(residuum(end)));
+		fprintf("%f ", parameterArray{1}.beta_cc_statewise);
 		fprintf("\n");
 		if norm(residuum(end)) < 1e-4
 			fprintf("Terminate due to small enough residuum");
@@ -115,14 +157,14 @@ function retval = naiveGradientSearch (input1, input2)
 		end	
 	end
 	
-	optimizeStateWise (parameterArray);
+	%optimizeStateWise (parameterArray);
 	
 endfunction
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function RKIdata = getRKIdata()
-	RKIread = read_case_history("../../Daten/Infectionnumbers.txt", "../../Daten/Deathnumbers.txt");
+	RKIread = read_case_history_RKIfiles();
   
   %rewrite the cell, since states are arranged differently in RKIread and statewiseSIR
   RKIdata = cell(16,1);
@@ -147,7 +189,9 @@ function RKIdata = getRKIdata()
   %create splines
   timesRKI = cell2mat(RKIdata{1}.time);
   for i=1:length(RKIdata)
-    RKIdata{i}.infected = cumsum(cell2mat(RKIdata{i}.infected));
+    %RKIinf = RKIdata{i}.infected;
+    %RKIdata{i}.infected = cumsum(cell2mat(RKIdata{i}.infected));
+    RKIdata{i}.infected = cell2mat(RKIdata{i}.infected);
     RKIdata{i}.splineInfected = spline(timesRKI, RKIdata{i}.infected);
     RKIdata{i}.dead = cell2mat(RKIdata{i}.dead);
     RKIdata{i}.splineDead = spline(timesRKI, RKIdata{i}.dead);
@@ -161,38 +205,53 @@ function parameterArray = getParameterArray()
 	parameterArray = read_parameter('../../Results/parameter.txt');  
 	%% the entries can be directly modified in the struct
 	%% eg. set a foldername
-  parameterArray{1}.model = "SIREDmod";
-  parameterArray{1}.folderName = "Test_Plots";
-  parameterArray{1}.saveVTK = false;
-  parameterArray{1}.saveDiagrams = false;
-  parameterArray{1}.showDiagrams = false;
-  parameterArray{1}.fullConsoleOut = true;
-  parameterArray{1}.blowUp = false;
-  parameterArray{1}.spatial	= "germany";
-  parameterArray{1}.initial = "GitData";
-  parameterArray{1}.initalDistributionDate = datenum([2020, 03, 16]);
-  parameterArray{1}.startDate = datenum([2020, 03, 02]);
-  parameterArray{1}.endDateOpt = datenum([2020, 04, 25]);
-  parameterArray{1}.reduceToStates= true;
-  parameterArray{1}.betaStateWise= false;
-  parameterArray{1}.exitRestrictions= 1;
-  parameterArray{1}.schoolClosing= 1;
-  parameterArray{1}.beta_cross_county	= 1;
-  
-  parameterArray{1}.wRatioGlobStates = 0; % 1 is fully statewise, 0 is only global
-  parameterArray{1}.wRatioID = 1; % 1 is only infected, 0 only death
-  parameterArray{1}.wISlope = 0.002; % weight for slope of infected last date
-  parameterArray{1}.optFunGermanSum = true;
-  parameterArray{1}.showStatePlots = true;
-  
-  parameterArray{1}.gamma1 = 0.067; % Infected (not detected) -> Recovered
-  parameterArray{1}.gamma2 = 0.04; % Quarantine -> Recovered
-  parameterArray{1}.mortality = 0.006; % 0.006
-  parameterArray{1}.darkFigure = 8.6403;
-  parameterArray{1}.beta =  0.175564;
-  
-  parameterArray{1}.majorEvents		= 0.378322;
-  parameterArray{1}.contactRestrictions = 0.188669;
-  
+	%% the entries can be directly modified in the struct
+	%% eg. set a foldername
+	parameterArray{1}.model = "SIREDmod";
+	%parameterArray{1}.totalRuntime = 40;
+	parameterArray{1}.folderName = "SIREDmod_1stWave_Paper";
+	parameterArray{1}.saveVTK = false;
+	parameterArray{1}.saveDiagrams = false;
+	parameterArray{1}.showDiagrams = false;
+	parameterArray{1}.fullConsoleOut = true;
+	parameterArray{1}.blowUp = false;
+	parameterArray{1}.spatial	= "germany";
+	parameterArray{1}.initial = "RKIfiles";
+	parameterArray{1}.initalDistributionDate = datenum([2020, 03, 16]);
+	parameterArray{1}.startDate = datenum([2020, 03, 02]);
+	parameterArray{1}.endDateOpt = datenum([2020, 04, 30]);
+	parameterArray{1}.reduceToStates= true;
+	%parameterArray{1}.betaStateWise= false;
+	parameterArray{1}.exitRestrictions= 1;
+	parameterArray{1}.schoolClosing= 1;
+	parameterArray{1}.beta_cross_county	= 1;
+	
+##	parameterArray{1}.wRatioGlobStates = 0.5; % 1 is fully statewise, 0 is only global
+##	parameterArray{1}.wRatioID = 1; % 1 is only infected, 0 only death
+##	parameterArray{1}.wISlope = 0.00; % weight for slope of infected last date
+	parameterArray{1}.optFunGermanSum = false;
+	parameterArray{1}.showStatePlots = false;	
+	
+	parameterArray{1}.gamma1 = 0.067; % Infected (not detected) -> Recovered
+	parameterArray{1}.gamma2 = 0.04; % Quarantine -> Recovered
+	parameterArray{1}.mortality = 0.006; % 0.006
+	parameterArray{1}.darkFigure = 12.324015;%11.2;%9.95; %6.5;
+	%parameterArray{1}.beta =  1.842096; %0.196693; %0.17;
+	
+	parameterArray{1}.beta =  1;
+	parameterArray{1}.betaSWscaling = 1;		
+  parameterArray{1}.schoolClosing	= 1;
+  parameterArray{1}.contactRestrictions = 0.089893;
+  parameterArray{1}.exitRestrictions	= 1;		
+  parameterArray{1}.majorEvents		= 0.812462;
+  parameterArray{1}.easingContactRestrictions	= 1;
+  parameterArray{1}.endOfVacation	= 1;
+  parameterArray{1}.liftingTravelRestictionsEU	= 1;
+  parameterArray{1}.lockdownLight =1;
+
+##	parameterArray{1}.majorEvents	= 0.318781; %0.302252; %0.2092;
+##	parameterArray{1}.contactRestrictions = 0.446369;%0.499724; %0.5956;
+  %parameterArray{1}.betaStatewise = [0.074255 0.002135 0.009843 0.163156 0.063369 0.093791 0.023009 0.034313 0.033831 0.147122 0.004086 0.093879 0.087273 0.189055 0.043525 0.030305];
+	parameterArray{1}.betaStatewise = [0.093468 0.223027 0.078771 0.107133 0.124950 0.059428 0.046771 0.136943 0.211577 0.242791 0.123193 0.174029 0.055153 0.149495 0.069747 0.139088];
 	parameterArray{1}.fullConsoleOut = false;
 endfunction

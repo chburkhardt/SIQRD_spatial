@@ -1,9 +1,8 @@
 # SIQRD_spatial
 
-The code presented here belongs to the paper "Meso-scale modeling of COVID-19 
-spatio-temporal outbreak dynamics in Germany" (DOI: 10.1101/2020.06.10.20126771)
-by Andreas Kergassner, Christian Burkhardt, Dorothee Lippold, Sarah Nistler, 
-Matthias Kergassner, Paul Steinmann, Dominik Budday, Silvia Budday
+The code presented here belongs to the paper "First and second wave outbreak dynamics of Covid-19 in Germany" 
+by Dorothee Lippold, Andreas Kergaßner, Christian Burkhardt, Matthias Kergaßner, Jonas Loos, Sarah Nistler, Paul Steinmann, Dominik Budday, Silvia Budday
+
 
 Due to the dynamic development process of the implementation, the names of the 
 compartments in the paper differ from those in the implementation.
@@ -30,7 +29,7 @@ compartments in the paper differ from those in the implementation.
 is structured in a spatial, a local and a particle swarm optimization (PSO) part
 
 NOTE:
-vtkwrite.m is based on Chaoyuan Yeh, 2016  %  Version 2.3 and  
+vtkwrite.m is based on Chaoyuan Yeh, 2016  %  Version 2.3 and 
 ode23d_fixed.m is based on the corresponding ode23d.m file from the OdePkg package of GNU Octave and modified
 
 

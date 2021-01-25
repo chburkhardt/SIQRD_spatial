@@ -1,0 +1,432 @@
+Name	Status	Cases	Cases	Cases	Cases	Cases	Cases	Cases	Cases	Cases
+		count	count	count	count	count	count	count	count	incomplete
+		28.02.2020	06.03.2020	13.03.2020	20.03.2020	27.03.2020	03.04.2020	10.04.2020	17.04.2020	22.04.2020
+Baden-WÅrttemberg	State	17	131	725	4,022	10,169	17,853	23,801	27,49	28,898
+Alb-Donau-Kreis	County	0	4	8	39	164	298	412	451	476
+Baden-Baden	County-level City	0	0	3	19	43	100	135	159	163
+Biberach	County	0	0	5	50	160	258	413	463	485
+B?blingen	County	1	3	9	148	458	809	1,103	1,226	1,268
+Bodenseekreis	County	0	1	8	70	161	214	252	265	270
+Breisgau-Hochschwarzwald	County	2	8	26	145	290	616	831	952	983
+Calw	County	0	1	14	92	230	373	477	547	607
+Emmendingen	County	0	1	17	101	179	352	451	496	509
+Enzkreis	County	0	0	4	22	64	163	259	370	440
+Esslingen	County	1	17	70	346	657	1,038	1,312	1,493	1,539
+Freiburg im Breisgau	County-level City	1	3	35	163	340	604	817	884	913
+Freudenstadt	County	0	0	2	15	126	221	394	469	513
+G?ppingen	County	1	3	32	138	296	502	641	704	717
+Heidelberg	County-level City	0	2	7	53	118	212	250	262	264
+Heidenheim	County	0	0	4	36	115	222	277	371	405
+Heilbronn	County	0	15	34	117	315	480	637	713	784
+Heilbronn Stadt	County-level City	0	3	4	24	110	235	318	362	387
+Hohenlohekreis	County	0	1	22	185	332	516	634	692	713
+Karlsruhe	County	1	2	20	125	254	509	704	799	828
+Karlsruhe Stadt	County-level City	0	0	9	56	134	201	278	307	317
+Konstanz	County	0	0	9	65	121	242	334	379	394
+L?rrach	County	0	1	8	59	163	325	428	469	513
+Ludwigsburg	County	3	9	38	214	546	948	1,261	1,396	1,451
+Main-Tauber-Kreis	County	0	6	31	39	75	179	262	313	322
+Mannheim	County-level City	0	5	22	83	174	261	356	407	421
+Neckar-Odenwald-Kreis	County	0	0	8	27	69	134	177	261	296
+Ortenaukreis	County	0	3	19	74	200	538	755	871	915
+Ostalbkreis	County	0	4	17	131	288	445	604	902	1,015
+Pforzheim	County-level City	0	0	4	12	21	58	88	147	190
+Rastatt	County	0	0	12	74	221	337	409	457	469
+Ravensburg	County	2	4	26	126	303	400	467	496	506
+Rems-Murr-Kreis	County	0	6	27	116	366	670	944	1,043	1,085
+Reutlingen	County	0	0	9	76	249	600	859	1,212	1,265
+Rhein-Neckar-Kreis	County	0	3	25	159	412	665	759	833	849
+Rottweil	County	1	1	2	7	84	222	379	508	540
+Schw?bisch Hall	County	0	0	17	86	250	438	609	677	727
+Schwarzwald-Baar-Kreis	County	0	0	3	42	156	259	365	415	437
+Sigmaringen	County	0	1	6	63	224	463	588	687	709
+Stuttgart	County-level City	0	3	47	336	620	891	1,065	1,201	1,246
+TÅbingen	County	2	2	22	132	551	827	1,061	1,14	1,169
+Tuttlingen	County	0	0	4	19	99	238	336	387	401
+Ulm	County-level City	0	3	7	37	101	164	207	227	228
+Waldshut	County	0	0	4	24	72	145	230	266	279
+Zollernalbkreis	County	2	16	25	77	258	481	663	811	890
+Bayern [Bavaria]	State	18	69	581	3,41	11,042	21,826	31,417	36,509	38,814
+Aichach-Friedberg	County	0	1	5	20	91	153	216	250	260
+Alt?tting	County	0	0	0	13	78	213	388	502	548
+Amberg	County-level City	0	0	0	2	7	26	45	58	65
+Amberg-Sulzbach	County	0	0	4	18	47	121	278	354	416
+Ansbach	County	0	0	0	12	100	217	326	405	467
+Ansbach Stadt	County-level City	0	0	0	3	18	35	74	80	94
+Aschaffenburg	County	0	0	3	38	109	215	333	430	449
+Aschaffenburg Stadt	County-level City	0	0	4	23	41	67	88	98	99
+Augsburg	County	0	0	17	53	141	229	308	339	345
+Augsburg Stadt	County-level City	0	0	10	37	115	207	286	315	342
+Bad Kissingen	County	0	1	3	9	36	113	153	198	211
+Bad T?lz-Wolfratshausen	County	0	0	4	28	116	227	323	368	388
+Bamberg	County	0	0	1	38	140	233	327	352	368
+Bamberg Stadt	County-level City	0	0	1	23	54	85	127	151	172
+Bayreuth	County	0	0	5	14	77	149	255	333	354
+Bayreuth Stadt	County-level City	0	0	0	4	36	73	135	159	165
+Berchtesgadener Land	County	0	0	1	8	59	128	194	238	253
+Cham	County	0	1	21	63	149	281	346	362	370
+Coburg	County	0	0	0	14	35	67	96	151	161
+Coburg Stadt	County-level City	0	0	0	3	16	25	35	43	50
+Dachau	County	0	0	6	46	209	404	590	696	740
+Deggendorf	County	0	0	3	32	97	142	181	212	237
+Dillingen a.d. Donau	County	0	0	0	6	26	75	110	179	202
+Dingolfing-Landau	County	0	0	7	24	70	112	153	171	182
+Donau-Ries	County	0	0	4	13	58	133	253	277	298
+Ebersberg	County	0	2	20	44	134	246	341	385	401
+Eichst?tt	County	0	0	1	13	48	111	172	211	243
+Erding	County	0	0	7	45	206	365	460	510	535
+Erlangen	County-level City	1	4	7	20	57	104	168	206	213
+Erlangen-H?chstadt	County	0	2	7	19	52	108	165	183	190
+Forchheim	County	0	0	4	18	67	124	165	191	195
+Freising	County	1	4	51	158	345	612	801	877	904
+Freyung-Grafenau	County	0	0	1	12	42	100	129	153	162
+FÅrstenfeldbruck	County	3	3	6	38	246	467	619	687	726
+FÅrth	County	0	0	3	18	106	283	381	409	428
+FÅrth Stadt	County-level City	0	1	6	24	77	160	231	262	288
+Garmisch-Partenkirchen	County	0	0	2	25	72	138	202	228	241
+GÅnzburg	County	0	0	1	11	53	123	171	203	212
+Ha†berge	County	0	0	4	13	35	79	101	120	139
+Hof	County	0	0	1	19	72	165	252	304	335
+Hof Stadt	County-level City	0	0	1	8	20	52	71	90	94
+Ingolstadt	County-level City	0	0	1	4	30	133	266	338	366
+Kaufbeuren	County-level City	0	0	1	5	15	44	68	86	90
+Kelheim	County	0	0	2	18	89	218	330	381	402
+Kempten (Allg?u)	County-level City	0	0	4	18	29	48	66	94	100
+Kitzingen	County	0	0	3	12	25	44	77	87	100
+Kronach	County	0	0	0	9	32	56	81	96	108
+Kulmbach	County	0	0	1	12	63	94	137	169	177
+Landsberg am Lech	County	1	1	2	17	108	178	279	299	306
+Landshut	County	0	0	2	58	199	351	507	574	609
+Landshut Stadt	County-level City	0	0	1	24	74	145	213	244	253
+Lichtenfels	County	0	0	0	7	48	112	145	164	188
+Lindau (Bodensee)	County	0	0	8	35	90	163	214	232	236
+Main-Spessart	County	0	0	2	11	39	81	121	139	143
+Memmingen	County-level City	0	0	0	11	25	38	40	47	48
+Miesbach	County	0	1	1	58	212	356	452	475	484
+Miltenberg	County	0	0	1	23	71	150	204	238	246
+MÅhldorf a. Inn	County	0	0	0	16	76	221	343	419	443
+MÅnchen	County	1	5	26	150	424	747	988	1,106	1,135
+MÅnchen Stadt	County-level City	4	18	119	841	2,06	3,428	4,341	4,964	5,182
+Neuburg-Schrobenhausen	County	0	0	0	8	60	108	163	213	239
+Neumarkt i.d. OPf.	County	0	0	2	25	65	131	194	257	292
+Neustadt a.d. Aisch-Bad Windsheim	County	0	0	4	7	36	75	118	170	207
+Neustadt a.d. Waldnaab	County	0	0	0	10	98	339	540	624	690
+Neu-Ulm	County	0	2	3	28	101	210	305	385	397
+NÅrnberg	County-level City	0	5	20	61	183	353	615	758	832
+NÅrnberger Land	County	0	0	1	26	130	278	441	522	563
+Oberallg?u	County	0	1	9	29	64	108	147	159	166
+Ostallg?u	County	1	2	7	21	88	247	370	454	470
+Passau	County	0	2	5	24	81	222	319	377	407
+Passau Stadt	County-level City	0	0	1	6	27	62	97	115	116
+Pfaffenhofen a.d. Ilm	County	0	0	6	22	61	175	257	295	311
+Regen	County	0	0	3	23	40	70	119	133	144
+Regensburg	County	0	0	8	47	108	204	316	368	378
+Regensburg Stadt	County-level City	0	0	4	55	117	208	319	363	377
+Rh?n-Grabfeld	County	0	0	2	9	31	59	102	132	147
+Rosenheim	County	0	1	6	60	407	989	1,456	1,7	1,861
+Rosenheim Stadt	County-level City	0	0	1	7	91	168	250	322	361
+Roth	County	0	1	5	20	87	186	244	268	274
+Rottal-Inn	County	0	0	6	51	169	369	588	656	686
+Schwabach	County-level City	0	1	3	10	20	45	64	70	73
+Schwandorf	County	0	0	7	23	73	210	333	385	416
+Schweinfurt	County	0	0	3	25	73	177	315	362	397
+Schweinfurt Stadt	County-level City	0	0	0	4	19	66	106	132	140
+Starnberg	County	2	4	31	84	233	365	441	474	484
+Straubing	County-level City	0	0	2	20	59	134	215	281	307
+Straubing-Bogen	County	0	0	1	19	61	170	284	326	370
+Tirschenreuth	County	0	0	6	62	256	672	934	1,039	1,069
+Traunstein	County	4	4	6	37	146	350	697	867	963
+Unterallg?u	County	0	0	4	21	67	133	196	219	234
+Weiden i.d. OPf.	County-level City	0	0	3	9	47	107	186	240	263
+Weilheim-Schongau	County	0	1	8	52	149	261	305	326	334
+Wei†enburg-Gunzenhausen	County	0	0	2	8	64	136	229	253	268
+Wunsiedel i. Fichtelgebirge	County	0	0	0	23	130	305	508	562	575
+WÅrzburg	County	0	0	6	40	139	248	334	374	393
+WÅrzburg Stadt	County-level City	0	1	11	76	196	312	389	436	452
+Berlin	State	0	19	180	771	2,018	3,294	4,412	4,974	5,312
+Charlottenburg-Wilmersdorf	District	0	0	36	116	275	432	548	600	627
+Friedrichshain-Kreuzberg	District	0	4	14	80	219	326	382	413	428
+Lichtenberg	District	0	0	6	33	83	134	171	192	202
+Marzahn-Hellersdorf	District	0	1	4	24	62	107	160	196	232
+Mitte	District	0	6	26	121	314	515	653	773	806
+Neuk?lln	District	0	1	16	66	196	349	472	521	568
+Pankow	District	0	3	19	72	195	312	443	491	552
+Reinickendorf	District	0	2	9	43	134	217	340	404	423
+Spandau	District	0	0	8	20	68	116	178	199	218
+Steglitz-Zehlendorf	District	0	0	19	69	138	276	369	420	443
+Tempelhof-Sch?neberg	District	0	2	17	85	216	338	463	513	540
+Treptow-K?penick	District	0	0	6	42	118	172	233	252	273
+Brandenburg	State	1	3	53	315	697	1,241	1,834	2,184	2,389
+Barnim	County	0	0	7	31	65	95	198	263	301
+Brandenburg an der Havel	County-level City	0	0	0	5	14	27	41	48	50
+Cottbus	County-level City	0	0	8	20	29	34	35	39	39
+Dahme-Spreewald	County	0	0	1	18	48	111	140	154	160
+Elbe-Elster	County	0	0	5	8	22	43	66	72	73
+Frankfurt (Oder)	County-level City	0	0	0	3	6	10	22	22	23
+Havelland	County	0	1	5	9	40	89	125	138	147
+M?rkisch-Oderland	County	0	0	9	69	97	131	160	178	182
+Oberhavel	County	1	2	3	26	76	128	155	171	203
+Oberspreewald-Lausitz	County	0	0	2	5	12	24	35	38	39
+Oder-Spree	County	0	0	3	32	59	79	92	98	100
+Ostprignitz-Ruppin	County	0	0	0	6	9	21	34	36	37
+Potsdam	County-level City	0	0	0	23	64	170	347	477	533
+Potsdam-Mittelmark	County	0	0	4	18	62	136	199	244	286
+Prignitz	County	0	0	0	1	9	9	19	22	22
+Spree-Nei†e	County	0	0	5	24	40	50	53	54	55
+Teltow-Fl?ming	County	0	0	1	13	37	63	90	102	111
+Uckermark	County	0	0	0	4	8	21	23	28	28
+Bremen	State	0	4	40	118	241	339	455	554	624
+Bremen	County-level City	0	4	38	104	225	317	429	527	595
+Bremerhaven	County-level City	0	0	2	14	16	22	26	27	29
+Hamburg	State	0	13	141	849	1,83	2,736	3,616	4,073	4,204
+Hamburg	County-level City	0	13	141	849	1,83	2,736	3,616	4,073	4,204
+Hessen [Hesse]	State	0	18	132	1,037	2,507	4,179	5,733	6,809	7,38
+Bergstra†e	County	0	1	5	34	111	201	253	282	289
+Darmstadt	County-level City	0	0	0	17	48	83	108	130	163
+Darmstadt-Dieburg	County	0	0	3	38	129	214	283	323	342
+Frankfurt am Main	County-level City	0	6	15	121	287	517	795	998	1,105
+Fulda	County	0	0	9	68	116	195	256	284	292
+Gie†en	County	0	3	7	54	98	152	179	188	205
+Gro†-Gerau	County	0	0	1	31	136	224	280	330	370
+Hersfeld-Rotenburg	County	0	0	6	21	33	84	149	182	192
+Hochtaunuskreis	County	0	2	4	49	115	167	207	218	226
+Kassel	County	0	0	4	35	73	106	170	235	270
+Kassel Stadt	County-level City	0	0	3	34	65	97	137	180	203
+Lahn-Dill-Kreis	County	0	2	5	32	116	194	286	315	318
+Limburg-Weilburg	County	0	0	0	43	134	187	211	225	240
+Main-Kinzig-Kreis	County	0	1	18	77	143	252	356	454	498
+Main-Taunus-Kreis	County	0	0	4	39	98	153	186	207	223
+Marburg-Biedenkopf	County	0	0	7	38	92	121	154	167	175
+Odenwaldkreis	County	0	0	0	12	46	102	176	231	280
+Offenbach	County	0	0	9	65	140	218	306	377	398
+Offenbach am Main	County-level City	0	0	1	6	19	33	53	63	72
+Rheingau-Taunus-Kreis	County	0	1	14	42	95	141	178	185	191
+Schwalm-Eder-Kreis	County	0	0	3	53	108	228	321	401	420
+Vogelsbergkreis	County	0	1	2	15	41	69	96	103	113
+Waldeck-Frankenberg	County	0	1	4	27	46	82	109	129	137
+Werra-Mei†ner-Kreis	County	0	0	0	2	13	25	55	113	124
+Wetteraukreis	County	0	0	2	37	76	141	190	221	245
+Wiesbaden	County-level City	0	0	6	47	129	193	239	268	289
+Mecklenburg-Vorpommern [Mecklenburg-Western Pomerania]	State	0	5	29	162	288	477	589	643	656
+Landkreis Rostock	County	0	0	7	16	25	40	52	54	54
+Ludwigslust-Parchim	County	0	0	0	18	29	45	57	64	65
+Mecklenburgische Seenplatte	County	0	1	7	21	42	84	101	107	108
+Nordwestmecklenburg	County	0	0	0	17	24	44	59	67	69
+Rostock	County-level City	0	0	5	23	46	61	72	74	75
+Schwerin	County-level City	0	0	2	29	53	74	85	88	89
+Vorpommern-Greifswald	County	0	2	3	26	43	73	95	114	120
+Vorpommern-RÅgen	County	0	2	5	12	26	56	68	75	76
+Niedersachsen [Lower Saxony]	State	1	20	214	1,264	3,112	5,405	7,409	8,657	9,236
+Ammerland	County	0	1	5	17	55	96	128	150	155
+Aurich	County	0	0	3	22	36	66	74	75	76
+Braunschweig	County-level City	0	1	2	17	93	207	266	285	290
+Celle	County	0	3	6	24	60	97	119	142	144
+Cloppenburg	County	0	0	2	7	31	45	65	88	88
+Cuxhaven	County	0	4	5	25	46	59	74	78	82
+Delmenhorst	County-level City	1	1	5	9	16	24	28	32	36
+Diepholz	County	0	0	16	39	109	180	247	274	294
+Emden	County-level City	0	0	3	7	7	8	14	15	15
+Emsland	County	0	0	4	51	111	178	263	359	369
+Friesland	County	0	0	2	3	9	17	23	28	30
+Gifhorn	County	0	0	5	27	48	86	105	119	122
+Goslar	County	0	0	0	16	45	70	112	135	168
+G?ttingen	County	0	0	4	43	106	225	347	539	611
+Grafschaft Bentheim	County	0	1	3	16	55	108	157	197	206
+Hameln-Pyrmont	County	0	0	2	18	36	78	93	102	110
+Harburg	County	0	0	13	72	139	229	346	403	435
+Heidekreis (Soltau-Fallingbostel)	County	0	0	0	4	16	33	52	60	63
+Helmstedt	County	0	0	0	8	39	73	89	96	122
+Hildesheim	County	0	0	7	68	121	169	203	237	263
+Holzminden	County	0	0	2	22	41	74	92	99	103
+Leer	County	0	1	1	12	25	48	66	79	88
+LÅchow-Dannenberg	County	0	0	0	1	7	11	14	15	15
+LÅneburg	County	0	0	1	42	72	111	137	154	161
+Nienburg (Weser)	County	0	0	2	12	25	39	59	61	63
+Northeim	County	0	0	4	10	25	40	57	85	98
+Oldenburg	County	0	0	4	14	54	149	174	187	193
+Oldenburg Stadt	County-level City	0	1	7	22	59	106	139	151	151
+OsnabrÅck	County	0	1	7	88	234	390	671	811	882
+OsnabrÅck Stadt	County-level City	0	0	8	93	176	254	360	400	421
+Osterholz	County	0	0	10	24	36	57	64	73	73
+Peine	County	0	0	0	13	40	99	123	129	131
+Region Hannover	County	0	3	45	244	634	1,014	1,392	1,583	1,685
+Rotenburg (WÅmme)	County	0	2	5	20	43	59	72	88	91
+Salzgitter	County-level City	0	0	1	9	41	63	93	108	116
+Schaumburg	County	0	0	2	22	47	64	110	133	137
+Stade	County	0	1	15	43	99	136	164	175	178
+Uelzen	County	0	0	1	5	14	26	33	39	39
+Vechta	County	0	0	2	27	95	198	263	286	300
+Verden	County	0	0	6	21	42	81	106	112	113
+Wesermarsch	County	0	0	0	5	31	44	48	51	51
+Wilhelmshaven	County-level City	0	0	3	5	6	9	14	17	17
+Wittmund	County	0	0	1	4	8	16	20	22	24
+WolfenbÅttel	County	0	0	0	3	27	53	92	128	155
+Wolfsburg	County-level City	0	0	0	10	53	216	241	257	272
+Nordrhein-Westfalen [North Rhine-Westphalia]	State	23	323	1,229	5,565	11,303	17,992	24,097	27,899	30,185
+Bielefeld	County-level City	0	0	11	25	139	192	266	341	341
+Bochum	County-level City	0	2	15	52	169	233	266	385	409
+Bonn	County-level City	0	1	22	91	229	353	474	550	578
+Borken	County	0	5	16	226	375	584	754	827	845
+Bottrop	County-level City	0	0	3	10	29	50	83	104	120
+Coesfeld	County	0	11	30	92	196	361	424	458	480
+Dortmund	County-level City	0	2	17	107	228	367	513	584	617
+Duisburg	County-level City	0	2	10	74	223	347	517	636	701
+DÅren	County	0	4	14	76	193	310	411	493	520
+DÅsseldorf	County-level City	0	2	8	188	321	543	743	857	938
+Ennepe-Ruhr-Kreis	County	0	0	6	43	123	232	307	343	365
+Essen	County-level City	0	1	11	126	287	357	458	498	691
+Euskirchen	County	0	1	5	40	93	165	257	302	317
+Gelsenkirchen	County-level City	0	2	4	37	71	149	222	255	275
+GÅtersloh	County	0	0	7	150	277	384	489	531	577
+Hagen	County-level City	0	0	3	28	55	96	138	188	207
+Hamm	County-level City	0	0	2	47	119	217	296	356	405
+Heinsberg	County	20	194	521	878	1,147	1,401	1,54	1,618	1,695
+Herford	County	0	0	6	76	125	192	264	290	301
+Herne	County-level City	0	0	4	10	39	66	92	125	139
+Hochsauerlandkreis	County	0	0	14	93	198	345	472	536	551
+H?xter	County	0	0	0	14	48	113	183	245	261
+Kleve	County	0	0	7	89	173	284	374	462	515
+K?ln	County-level City	3	21	104	621	1,105	1,69	1,994	2,148	2,197
+Krefeld	County-level City	0	0	11	50	125	230	282	319	426
+Leverkusen	County-level City	0	0	5	33	70	133	153	176	185
+Lippe	County	0	1	35	117	222	348	510	578	659
+M?rkischer Kreis	County	0	4	12	35	80	167	284	413	477
+Mettmann	County	0	0	14	96	246	394	605	713	768
+Minden-LÅbbecke	County	0	0	15	125	183	285	356	385	394
+M?nchengladbach	County-level City	0	3	20	77	148	242	330	399	430
+MÅlheim an der Ruhr	County-level City	0	0	5	25	52	94	120	139	147
+MÅnster	County-level City	0	4	15	169	368	506	581	602	613
+Oberbergischer Kreis	County	0	4	13	64	154	293	360	390	429
+Oberhausen	County-level City	0	0	7	35	58	91	137	155	160
+Olpe	County	0	0	1	17	66	178	302	449	497
+Paderborn	County	0	0	8	60	123	297	440	519	541
+Recklinghausen	County	0	0	9	85	178	387	586	735	909
+Remscheid	County-level City	0	0	7	19	43	86	143	188	203
+Rhein-Erft-Kreis	County	0	1	9	64	202	427	711	815	890
+Rheinisch-Bergischer Kreis	County	0	3	18	47	161	232	322	388	395
+Rhein-Kreis Neuss	County	0	5	12	84	260	425	499	529	554
+Rhein-Sieg-Kreis	County	0	4	22	142	398	608	854	1,017	1,097
+Siegen-Wittgenstein	County	0	0	2	31	84	139	194	237	250
+Soest	County	0	0	3	54	142	219	299	322	332
+Solingen	County-level City	0	0	5	36	73	125	161	198	216
+St?dteregion Aachen	County	0	40	76	298	681	1,104	1,427	1,602	1,666
+Steinfurt	County	0	0	3	134	278	517	868	1,055	1,15
+Unna	County	0	1	14	53	139	225	370	477	558
+Viersen	County	0	4	18	110	190	324	441	506	563
+Warendorf	County	0	0	10	125	251	338	362	416	424
+Wesel	County	0	1	17	115	205	265	358	422	461
+Wuppertal	County-level City	0	0	3	72	161	282	505	623	746
+Rheinland-Pfalz [Rhineland-Palatinate]	State	0	8	130	910	2,134	3,501	4,615	5,298	5,593
+Ahrweiler	County	0	0	6	35	58	83	106	113	115
+Altenkirchen (Westerwald)	County	0	0	5	10	27	53	82	110	118
+Alzey-Worms	County	0	0	2	34	69	94	121	153	169
+Bad DÅrkheim	County	0	1	8	54	134	199	253	287	304
+Bad Kreuznach	County	0	0	13	33	73	124	145	161	177
+Bernkastel-Wittlich	County	0	0	5	15	39	75	108	119	123
+Birkenfeld	County	0	0	0	4	23	42	62	72	77
+Bitburg-PrÅm	County	0	0	4	31	75	115	133	149	160
+Cochem-Zell	County	0	0	2	38	71	113	122	123	125
+Donnersbergkreis	County	0	0	1	12	47	63	81	101	111
+Frankenthal (Pfalz)	County-level City	0	0	1	9	13	25	31	33	36
+Germersheim	County	0	1	2	22	52	73	109	123	131
+Kaiserslautern	County	0	0	5	12	47	64	83	94	95
+Kaiserslautern Stadt	County-level City	0	3	5	13	50	67	86	97	107
+Koblenz	County-level City	0	2	11	51	118	156	206	226	237
+Kusel	County	0	0	1	18	33	57	72	84	85
+Landau in der Pfalz	County-level City	0	0	0	4	20	42	49	50	52
+Ludwigshafen am Rhein	County-level City	0	0	1	13	43	104	158	234	252
+Mainz	County-level City	0	1	12	51	125	223	341	392	441
+Mainz-Bingen	County	0	0	5	33	96	187	264	324	338
+Mayen-Koblenz	County	0	0	5	107	176	241	296	325	333
+Neustadt an der Weinstra†e	County-level City	0	0	1	12	42	62	81	89	90
+Neuwied	County	0	0	6	52	114	158	197	212	214
+Pirmasens	County-level City	0	0	0	1	12	20	26	30	30
+Rhein-HunsrÅck-Kreis	County	0	0	6	38	79	116	135	151	157
+Rhein-Lahn-Kreis	County	0	0	5	32	66	105	128	139	149
+Rhein-Pfalz-Kreis	County	0	0	1	8	46	120	164	185	193
+Speyer	County-level City	0	0	0	7	14	34	46	52	55
+SÅdliche Weinstra†e	County	0	0	1	26	56	108	128	139	140
+SÅdwestpfalz	County	0	0	0	3	31	63	84	102	103
+Trier	County-level City	0	0	3	12	29	69	83	92	94
+Trier-Saarburg	County	0	0	0	21	47	96	131	160	165
+Vulkaneifel	County	0	0	4	25	35	64	90	101	106
+Westerwaldkreis	County	0	0	9	51	112	181	261	295	316
+Worms	County-level City	0	0	0	23	57	86	127	147	160
+ZweibrÅcken	County-level City	0	0	0	0	5	19	26	34	35
+Saarland	State	0	0	33	201	529	1,233	1,976	2,266	2,367
+Merzig-Wadern	County	0	0	2	4	36	70	158	175	182
+Neunkirchen	County	0	0	4	32	68	130	185	213	220
+Regionalverband SaarbrÅcken	County	0	0	10	83	193	564	906	1,05	1,108
+Saarlouis	County	0	0	4	36	83	219	382	441	460
+Saarpfalz-Kreis	County	0	0	3	23	90	159	222	254	263
+St. Wendel	County	0	0	10	23	59	91	123	133	134
+Sachsen [Saxony]	State	0	1	78	560	1,491	2,635	3,565	4,127	4,273
+Bautzen	County	0	0	14	48	132	191	233	296	315
+Chemnitz	County-level City	0	0	3	32	72	133	165	185	190
+Dresden	County-level City	0	0	13	75	218	355	435	458	476
+Erzgebirgskreis	County	0	0	0	32	83	268	366	451	471
+G?rlitz	County	0	0	7	22	58	102	216	238	242
+Leipzig	County	0	0	9	27	69	115	169	179	181
+Leipzig Stadt	County-level City	0	0	16	109	242	367	458	511	528
+Mei†en	County	0	0	5	19	54	112	160	187	201
+Mittelsachsen	County	0	0	0	24	70	141	201	233	237
+Nordsachsen	County	0	0	2	10	23	58	93	114	120
+S?chsische Schweiz-Osterzgebirge	County	0	1	8	37	118	215	286	314	320
+Vogtlandkreis	County	0	0	0	15	87	134	204	275	285
+Zwickau	County	0	0	1	110	265	444	579	686	707
+Sachsen-Anhalt [Saxony-Anhalt]	State	0	0	35	192	508	855	1,133	1,284	1,395
+Altmarkkreis Salzwedel	County	0	0	1	3	10	17	27	30	30
+Anhalt-Bitterfeld	County	0	0	2	8	27	39	49	54	62
+B?rde	County	0	0	3	25	46	61	82	98	105
+Burgenlandkreis	County	0	0	1	14	25	39	56	65	69
+Dessau-Ro†lau	County-level City	0	0	0	5	16	23	47	56	59
+Halle (Saale)	County-level City	0	0	9	43	101	193	242	272	281
+Harz	County	0	0	2	14	35	68	126	162	217
+Jerichower Land	County	0	0	0	3	16	20	28	30	32
+Magdeburg	County-level City	0	0	6	29	66	87	91	97	102
+Mansfeld-SÅdharz	County	0	0	1	6	14	26	32	34	35
+Saalekreis	County	0	0	1	12	45	77	94	100	106
+Salzlandkreis	County	0	0	7	13	37	45	59	60	62
+Stendal	County	0	0	0	7	25	62	70	80	85
+Wittenberg	County	0	0	2	10	45	98	130	146	150
+Schleswig-Holstein	State	0	6	56	317	856	1,501	2,06	2,36	2,496
+Dithmarschen	County	0	1	1	12	21	34	51	54	54
+Flensburg	County-level City	0	0	0	10	19	26	32	33	33
+Herzogtum Lauenburg	County	0	1	6	24	71	136	184	224	237
+Kiel	County-level City	0	0	11	34	75	146	186	216	240
+LÅbeck	County-level City	0	1	8	20	72	97	128	151	155
+NeumÅnster	County-level City	0	0	0	5	13	29	41	46	60
+Nordfriesland	County	0	0	1	12	27	46	61	68	70
+Ostholstein	County	0	0	1	11	23	47	55	59	59
+Pinneberg	County	0	1	11	66	167	288	460	487	501
+Pl?n	County	0	0	2	11	45	69	93	104	105
+Rendsburg-Eckernf?rde	County	0	0	5	28	95	149	189	208	220
+Schleswig-Flensburg	County	0	0	3	22	46	91	107	115	122
+Segeberg	County	0	1	4	22	55	119	179	202	208
+Steinburg	County	0	0	0	7	28	52	71	76	79
+Stormarn	County	0	1	3	33	99	172	223	317	353
+ThÅringen [Thuringia]	State	0	1	23	191	610	1,028	1,424	1,696	1,872
+Altenburger Land	County	0	0	0	4	16	29	33	40	44
+Eichsfeld	County	0	0	0	4	40	64	85	104	108
+Eisenach	County-level City	0	0	1	1	4	7	12	13	14
+Erfurt	County-level City	0	0	2	26	67	89	108	120	125
+Gera	County-level City	0	0	1	4	8	31	48	79	104
+Gotha	County	0	0	0	4	20	34	58	108	135
+Greiz	County	0	0	0	22	94	157	225	285	330
+Hildburghausen	County	0	0	0	0	6	10	13	16	18
+Ilm-Kreis	County	0	0	1	4	39	74	102	107	119
+Jena	County-level City	0	0	0	39	95	130	154	155	155
+Kyffh?userkreis	County	0	0	5	10	17	25	35	35	36
+Nordhausen	County	0	0	0	2	9	20	29	44	53
+Saale-Holzland-Kreis	County	0	0	3	13	21	35	49	50	51
+Saale-Orla-Kreis	County	0	1	3	6	11	50	85	100	112
+Saalfeld-Rudolstadt	County	0	0	5	12	33	48	54	54	55
+Schmalkalden-Meiningen	County	0	0	1	11	27	34	53	70	75
+S?mmerda	County	0	0	0	2	19	28	32	33	36
+Sonneberg	County	0	0	0	0	14	33	47	55	61
+Suhl	County-level City	0	0	0	1	5	8	11	12	13
+Unstrut-Hainich-Kreis	County	0	0	0	5	10	26	47	61	65
+Wartburgkreis	County	0	0	0	8	15	28	32	33	37
+Weimar	County-level City	0	0	1	7	23	38	55	58	59
+Weimarer Land	County	0	0	0	6	17	30	57	64	67
+Deutschland [Germany]	Federal Republic	60	621	3,679	19,884	49,335	86,095	118,136	136,823	145,694

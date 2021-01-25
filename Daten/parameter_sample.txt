@@ -1,0 +1,67 @@
+% Define parameters for multiple runs as val1;val2;val3
+% no spaces allowed
+% Define ranges for multiple runs as valStart:increment:valEnd
+% Ranges are only allowed for parameters with numerical values
+% As initial several scenarios can be combined using "&"
+% so for example starting in Ischgl and Heinsberg: set initial Ischgl&Heinsberg
+
+% SIR model and parameter
+set model		= SIRH		% SIR|SIRED|SIREDYO|SIRH|SIREDmod
+set analytically	= true		% ...
+set reduce		= true		% true|false Reduction to counties
+set reduceToStates	= true		% true|false Reduction to states instead of counties
+set keepAGS		= 9574,9564,9563,9562,9572,9573		% AGS that will not be reduced
+set beta		= 0.3		% rate to get exposed
+set betaSWscaling	= 1		% scaling factor for stateWise given betas, if betaStatewise is given, beta will be ignored and betaSWscaling is used
+set betaStatewise	= 0.148106,0.260469,0.109561,0.195322,0.202218,0.086421,0.052591,0.212167,0.281259,0.329717,0.144268,0.217264,0.106012,0.210734,0.097104,0.155813	% a comment is necessary so far
+set gamma1		= 0.025		% rate to recover from light symptoms
+set gamma2		= 0.025		% rate to recover from discovered infection
+set darkFigure		= 4		% dark figure (ratio dicovered or not)
+set mortality		= 0.01		% mortality
+
+% considering the change of parameters due to Lockdown
+set schoolClosing	= 0.8		% beta reduction due to school closing
+set contactRestrictions = 0.8		% beta reduction due to contact ristrictions
+set exitRestrictions	= 0.8		% beta reduction due to exit restrictions
+set majorEvents		= 0.1		% beta reduction due to major events restrictions
+set betaStateWise	= false		% true|false Beta reduction statewise
+
+% Diffusion Parameter
+set c_s			= 0		% Diffusion of susceptible
+set c_i			= 0		% Diffusion of infected
+
+% Cross county infections
+set beta_cross_county	= 1e-2		% Ratio of in- and cross- county beta
+%set beta_cc_statewise	= 1.493720,0.431189,1.445615,0.516137,0.344211,0.824671,1.175521,0.537480,0.506872,0.472437,0.515953,1.664755,1.191301,0.681262,0.948501,1.114234 % a comment is necessary so far
+set n_traffic		= 2		% Exponent for (c_x / distance)^n
+set MobNetworkModel 	= false 	% Select if cross county infections via MobNetwork Model
+
+% spatial and intial setting
+set spatial		= 3cities	% 3cities|small|bayern|germany|europeanCapitals
+set initial		= Ischgl	% 1000Uniform|100Burghausen|1000Munich|allMunich|RKIcountyWise|Ischgl|Heinsberg|Heiligendamm|GitData|RKIdownload
+set initalDistributionDate	= 2020-03-06	% when using GitData in inital, set what date should be used between 2020-03-02 and 2020-05-03, ignored otherwise
+set totalRuntime	= 365		% Start is always at t=0
+set startDate		= 2020-03-01	% YYYY-MM-DD
+set endDateOpt		= 2020-03-20	% YYYY-MM-DD
+
+% Seeds
+set seed		= false		% true|false allow new seeds 
+set seedAGS		= 3159,5754	%type in AGS of seed, several seeds can be combined
+set seedDate		= 2020-06-04,2020-06-15	%type in date of seed, several seeds can be combined 
+
+% solver
+set maxTimeStep		= 5		% max timestepsize for solver
+set nRuns		= 4		% number off runs for optimization
+
+% postprocessing
+set showDiagrams	= false		% true|false
+set saveDiagrams	= false		% true|false
+set saveVTK		= true		% true|false
+set saveConnections	= false		% true|false add connections in vtk-files
+set resolutionVTK	= 30		% number of timesteps in grafical output
+set blowUp		= true		% true|false blowUp counties to cities if reduced
+set folderName		= fixed		% Foldername for output or "auto" to choose dateTime as foldername
+set fullConsoleOut	= true		% whether the present day is written or not
+set OutputComparisonRKI	= true		% when setto true just vtks for the days where countywise data from RKI is available (for now 2020-04-25 and 2020-04-11)
+set discoveredInVTK	= true		% for sired model if discovered in vtk or not
+set vtkStyleMap		= false		% true for map, false for circles

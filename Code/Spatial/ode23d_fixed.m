@@ -1,6 +1,3 @@
-%# The current file is based on the OdePkg package of GNU Octave
-%# Minor changes are introduced to obtain the shown results
-%# 
 %# Copyright (C) 2015-2016, Jacopo Corno <jacopo.corno@gmail.com>
 %# Copyright (C) 2008-2012, Thomas Treichl <treichl@users.sourceforge.net>
 %# OdePkg - A package for solving ordinary differential equations and more
@@ -283,7 +280,7 @@ function varargout = ode23d_fixed (fun, trange, init, lags, history, varargin)
   
   %# Initialize DDE variables for history calculation
   % todo change kerg
-  saveddetime = [linspace(-max(lags), timestamp, size(history, 2))]';
+  saveddetime = [linspace(timestamp-max(lags), timestamp, size(history, 2))]';
   saveddeinput = [hmat]';
   ##  saveddetime = [timestamp - lags, timestamp]';
   ##  saveddeinput = [hmat, init']';

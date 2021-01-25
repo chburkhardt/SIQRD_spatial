@@ -29,7 +29,8 @@ function retval = runLocalStateWise (input1, input2)
   %%%%%%%% Parameter %%%%%%%%
   parameter = read_parameter("../../Results/parameter_local.txt"){1};   
   parameter.showDiagrams = false;
-  parameter.model = "SIREDmod"; %"SIREDmod" 
+  parameter.betaStatewise	= [0.148106,0.260469,0.109561,0.195322,0.202218,0.086421,0.052591,0.212167,0.281259,0.329717,0.144268,0.217264,0.106012,0.210734,0.097104,0.155813];
+  parameter.model = "SIREDmod"; %"SIREDmod" | "SIRH" 
   parameter.folderName = "runStateWiseE0";
   parameter.startDate = datenum([2020, 03, 02]);
   betaStateWise	= true;
@@ -187,6 +188,46 @@ function retval = runLocalStateWise (input1, input2)
     rkiI = ppval(RKIdata{k}.splineInfected, times);
     rkiD = ppval(RKIdata{k}.splineDead, times(end));
     
+##    close all;
+##    name = RKIdata{k}.name;
+##    figure('Name',name);
+##    subplot(1,2,1), hold on;
+##    subplot(1,2,2), hold on;
+##    subplot(1,2,1), plot(cell2mat(RKIdata{k}.time), RKIdata{k}.infected, "-x");%, times, retval(1:end/2));
+##    subplot(1,2,2), plot(cell2mat(RKIdata{k}.time), RKIdata{k}.dead, "-x");%, times, retval(end/2 + 1:end));
+##    namesI = {"RKI infected (cumulated)"};
+##    namesD = {"RKI dead"};
+##    switch parameter.model
+##      case "SIRH"
+##        subplot(1,2,1), plot(xSim.x + startDateSim, xSim.y(2,:)*8e7, "-o");
+##        namesI{end + 1} = "discovered";
+##        subplot(1,2,2), plot(xSim.x + startDateSim, xSim.y(3,:)*8e7, "-o");
+##        namesD{end + 1} = "Dead";
+##      case "SIREDmod"
+##        subplot(1,2,1), plot(times, simdataI, "-o");
+##        namesI{end + 1} = "Cummulated Infected";             
+##        subplot(1,2,1), plot(xSim.x + startDateSim, xSim.y(2,:)*RKIdata{k}.population);
+##        namesI{end + 1} = "Infected (with symptoms)";
+##        subplot(1,2,1), plot(xSim.x + startDateSim, xSim.y(3,:)*RKIdata{k}.population);
+##        namesI{end + 1} = "Recovered";
+##        subplot(1,2,1), plot(xSim.x + startDateSim, xSim.y(4,:)*RKIdata{k}.population);
+##        namesI{end + 1} = "Exposed + no symptoms";
+##        subplot(1,2,2), plot(xSim.x + startDateSim, xSim.y(5,:)*RKIdata{k}.population, "-o");
+##        namesD{end + 1} = "Dead";
+##    endswitch
+##    subplot(1,2,1), xlim([min(times), max(times)]);
+##    subplot(1,2,1), ylim(ppval(RKIdata{k}.splineInfected,[min(times), max(times)]).*[1, 1.5]);
+##    subplot(1,2,1), legend(namesI);
+##    subplot(1,2,1), datetick ("x", "dd.mm.yyyy", "keeplimits");
+##    subplot(1,2,2), xlim([min(times), max(times)]);
+##    subplot(1,2,2), ylim(ppval(RKIdata{k}.splineDead,[min(times), max(times)]).*[1, 1.5]);
+##    subplot(1,2,2), legend(namesD);
+##    subplot(1,2,2), datetick ("x", "dd.mm.yyyy", "keeplimits");
+##    
+##    %title(RKIdata{k}.name);
+##    fname = ["../../Results/", parameter.folderName];
+##    filename = ["plot_", RKIdata{k}.name];
+##    saveas(gcf, fullfile(fname, filename), 'png');
     
     stateNames= {"Schleswig-Holstein", "Freie und Hansestadt Hamburg",...
     "Niedersachsen", "Freie Hansestadt Bremen", "Nordrhein-Westfalen",...
@@ -194,9 +235,14 @@ function retval = runLocalStateWise (input1, input2)
     "Saarland", "Berlin", "Brandenburg", "Mecklenburg-Vorpommern"...
     "Freistaat Sachsen", "Sachsen-Anhalt", "Freistaat Thueringen", "Germany"};
     
-    titles = {"Susceptible", "Infected", "Recovered", "Exposed", "Dead",...
+    switch parameter.model
+      case {"SIRED","SIREDmod"}
+        titles = {"Susceptible", "Infected", "Recovered", "Exposed", "Dead",...
         "Cumsum Infected", "RKI Infected", "RKI Dead"};
-
+        ##    case "SIRH"
+        ##      titles = {"Susceptible", "Exposed", "Removed", "Infectious",...
+        ##      "has symptoms", "in hospital", "needs intensive care", "Death", "Discovered"};
+    endswitch
     
     nVals = size(xSim.y, 1) + 3;
     persistent out = zeros(length(times), 1+(nVals)*length(stateNames));

@@ -39,7 +39,11 @@ function xdot = siredMod (t, x, parameter)
   population = [2896712, 1841179, 7982448, 682986, 17932651, 6265809,...
   4084844, 11069533, 13076721, 990509, 3644826, 2511917,...
   1609675, 4077937, 2208321, 2143145];
-  beta *=  sum(factorsBeta(1:end-1).*population')/sum(population);
+  if parameter.betaStatewise
+    beta *= betaHelp(parameter.AGS_state);
+  else
+    beta *=  sum(factorsBeta(1:end-1).*population')/sum(population);
+  end
  
   % Define variables
   s = x(1);
@@ -50,7 +54,7 @@ function xdot = siredMod (t, x, parameter)
   
   % Define ODEs
   ds=-beta*s*(e);
-  de=+beta*s*(e ) - alpha*e - gamma1*e;
+  de=+beta*s*(e) - alpha*e - gamma1*e;
   di=+alpha*e-gamma2*i-delta*i;
   dr=+gamma1*e + gamma2*i;
   dd=+delta*i;

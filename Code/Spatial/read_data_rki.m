@@ -24,6 +24,7 @@
 ## Created: 2020-04-11
 
 function datavec = read_data_rki (specialDay)
+  % no specialDay given
   if nargin == 0
     filename = '../../Daten/RKI_Corona_Landkreise.txt';
     
@@ -37,35 +38,36 @@ function datavec = read_data_rki (specialDay)
     % skip first line, as this is the legend
     line = fgetl(fid);
     line = fgetl(fid);
-    while(ischar(line))
+    while (ischar(line))
+      
+      entries = strsplit(line, ",");
+      if size(entries,2) == 40
+        %data.name = entries{8};
+        data.ags = str2num(entries{6});
+        data.Ifrac = str2num(entries{30}) / str2num(entries{24});
+        data.Dfrac = str2num(entries{31}) / str2num(entries{24});
+        datavec(length(datavec)+1) = data;     
+      else
+        % Berlin is splitted in RKI data but not in population data
+        data.ags = str2num(entries{2});
+        if data.ags >=11000 && data.ags <=11011
+          casesBerlin += str2num(entries{9});
+          deathBerlin += str2num(entries{10});
+          populationBerlin += str2num(entries{5});
+        endif  
+      endif
+      line = fgetl(fid);
+    endwhile
+    fclose(fid);
     
-    entries = strsplit(line, ",");
-    if size(entries,2) == 40
-      %data.name = entries{8};
-      data.ags = str2num(entries{6});
-      data.Ifrac = str2num(entries{30}) / str2num(entries{24});
-      data.Dfrac = str2num(entries{31}) / str2num(entries{24});
-      datavec(length(datavec)+1) = data;     
-    else
-      % Berlin is splitted in RKI data but not in population data
-      data.ags = str2num(entries{2});
-      if data.ags >=11000 && data.ags <=11011
-        casesBerlin += str2num(entries{9});
-        deathBerlin += str2num(entries{10});
-        populationBerlin += str2num(entries{5});
-      endif  
-    endif
-    line = fgetl(fid);
-  endwhile
-  fclose(fid);
-  
-  % add Berlin
-  data.ags = 11000;
-  data.Ifrac = casesBerlin / populationBerlin;
-  data.Dfrac = deathBerlin / populationBerlin;
-  
-  datavec(length(datavec)+1) = data;
-elseif
+    % add Berlin
+    data.ags = 11000;
+    data.Ifrac = casesBerlin / populationBerlin;
+    data.Dfrac = deathBerlin / populationBerlin;
+    
+    datavec(length(datavec)+1) = data;
+  % special day given
+  else
     filename = '../../Daten/InfectedOverAGS_RKI_28032020_11042020_25042020.txt';
     
     if (specialDay == datenum(2020,03,28))
@@ -75,14 +77,14 @@ elseif
     elseif (specialDay == datenum(2020,04,25))
       posInfected = 4;
     else   
-      error("Day to read agswise RKI infection numbers in, not in database");
+      error("Day to read agswise RKI infection numbers in is not in database");
     endif  
     
     datavec = {};   
     fid = fopen(filename);
     % skip first line, as this is the legend
     line = fgetl(fid);
-        line = fgetl(fid);
+    line = fgetl(fid);
     line = fgetl(fid);
     while(ischar(line))
     entries = strsplit(line, ";");

@@ -39,10 +39,14 @@ function parameter = read_parameter (filename)
   switch entries{2}
     case "model"
       parameter.model = getValue(entries{4}, "string");
+    case "analytically"
+      parameter.analytically = getValue(entries{4}, "boolean");
     case "reduce"
       parameter.reduce = getValue(entries{4}, "boolean");
     case "reduceToStates"
       parameter.reduceToStates = getValue(entries{4}, "boolean");
+    case "keepAGS"
+      parameter.keepAGS = getValue(entries{4}, "numericalArray");
     case "beta"
       parameter.beta = getValue(entries{4}, "numerical");
     case "betaSWscaling"
@@ -65,6 +69,14 @@ function parameter = read_parameter (filename)
       parameter.exitRestrictions = getValue(entries{4}, "numerical");
     case "majorEvents"
       parameter.majorEvents = getValue(entries{4}, "numerical");
+    case "masks"
+      parameter.masks = getValue(entries{4}, "numerical");
+##    case "betaStateWise"
+##      parameter.betaStateWise = getValue(entries{4}, "boolean");
+    case "c_s"
+      parameter.c_s = getValue(entries{4}, "numerical");
+    case "c_i"
+      parameter.c_i = getValue(entries{4}, "numerical");
     case "beta_cross_county"
       parameter.beta_cross_county = getValue(entries{4}, "numerical");
     case "beta_cc_statewise"
@@ -111,6 +123,28 @@ function parameter = read_parameter (filename)
       parameter.discoveredInVTK = getValue(entries{4},"boolean");
     case "vtkStyleMap"
       parameter.vtkStyleMap = getValue(entries{4},"boolean");
+    case "seed"
+      parameter.seed = getValue(entries{4},"boolean");      
+    case "seedAGS"
+      parameter.seedAGS = getValue(entries{4},"numericalArray");
+    case "seedDate"
+      parameter.seedDate = getValue(entries{4},"dateArray");
+    case "seedSize"
+      parameter.seedSize = getValue(entries{4},"numericalArray");
+    case "easingContactRestrictions"
+      parameter.easingContactRestrictions = getValue(entries{4},"numerical");
+    case "endOfVacation"
+      parameter.endOfVacation = getValue(entries{4},"numerical");
+    case "liftingTravelRestictionsEU"
+      parameter.liftingTravelRestictionsEU = getValue(entries{4},"numerical"); 
+    case "lockdownLight"
+      parameter.lockdownLight = getValue(entries{4},"numerical"); 
+    case "considerAverageAgeCounty"
+      parameter.considerAverageAgeCounty = getValue(entries{4},"boolean");
+    case "considereAgeOfNewlyInfected"
+      parameter.considereAgeOfNewlyInfected = getValue(entries{4},"boolean");
+    case "factorsDF"
+      parameter.factorsDF = getValue(entries{4}, "numericalArray");
   endswitch
   line = fgetl(fid);
 end
@@ -174,12 +208,18 @@ switch type
     
   case "date"
     if numel(strfind(entry, ";"))
-      retval = datenum(strsplit(entry, ";"));
+      retval = datenum(strsplit(entry, ";")); 
     else
       retval = datenum(strrep(entry, "_", " "));
-    end
+    end   
     
-    
+   case "dateArray"
+    if numel(strfind(entry, ";"))
+      retval = datenum(strsplit(entry, ";")); 
+    else
+      retval = {datenum(strrep((strsplit(entry, ",")), "_", " "))};
+    end   
+
   case "numerical"
     if numel(strfind(entry, ";"))
       retval = str2num(char(strsplit(entry, ";")));
@@ -192,8 +232,7 @@ switch type
       retval = tmp(1):tmp(2):tmp(3);
     else
       retval = str2num(entry);
-    end
-    
+    end    
     
   case "numericalArray"
     if numel(strfind(entry, ";"))
@@ -220,11 +259,11 @@ for i=1:length(parameter)
 		error("Blow up cannot be used with OutputComparisonRKI");
 	endif
 	
-	if parameter{i}.vtkStyleMap	
-		if or(!parameter{i}.reduce, parameter{i}.reduceToStates)
-			error("vtkStyleMap only works for countywise calculations");
-		endif
-	endif	
+##	if parameter{i}.vtkStyleMap	
+##		if or(!parameter{i}.reduce, parameter{i}.reduceToStates)
+##			error("vtkStyleMap only works for countywise calculations");
+##		endif
+##	endif	
 endfor
 endfunction
 

@@ -1,0 +1,69 @@
+% Define parameters for multiple runs as val1;val2;val3
+% no spaces allowed
+% Define ranges for multiple runs as valStart:increment:valEnd
+% Ranges are only allowed for parameters with numerical values
+% As initial several scenarios can be combined using "&"
+% so for example starting in Ischgl and Heinsberg: set initial Ischgl&Heinsberg
+% Each line with a parameter need a comment in the end, otherwise the line is ignored
+% betaStatewise and betaCCStatewise can be given as b1,b2,...b16
+% if betaStatewise is given, beta will be ignored, same for betaCCstatewise
+
+% SIR model and parameter
+set model		= SIRH		% SIR|SIRED|SIREDYO|SIRH|SIREDmod
+set analytically	= false		% ...
+set reduce		= true		% true|false Reduction to counties
+set reduceToStates	= false		% true|false Reduction to states instead of counties
+%set keepAGS		= 9572,9564,9574%,9573,9563,9562		% AGS that will not be reduced
+set beta		= 0.175564	% rate to get exposed
+set betaSWscaling	= 1		% scaling factor for stateWise given betas, if betaStatewise is given, beta will be ignored and betaSWscaling is used
+set betaStatewise	= 0.418735,0.745800,0.304359,0.565249,0.580616,0.245991,0.155435,0.609100,0.793754,0.932559,0.415610,0.595508,0.301110,0.596796,0.277688,0.436332 % a comment is necessary so far
+set gamma1		= 0.067		% rate to recover from light symptoms
+set gamma2		= 0.04		% rate to recover from discovered infection
+set darkFigure		= 6.5		% dark figure (ratio dicovered or not)
+set mortality		= 0.006		% mortality
+
+% considering the change of parameters due to Lockdown
+set schoolClosing	= 1		% beta reduction due to school closing
+set contactRestrictions = 0.6096	% beta reduction due to contact ristrictions
+set exitRestrictions	= 1		% beta reduction due to exit restrictions
+set majorEvents		= 0.2102	% beta reduction due to major events restrictions
+
+% Diffusion Parameter
+set c_s			= 0		% Diffusion of susceptible
+set c_i			= 0		% Diffusion of infected
+
+% Cross county infections
+set beta_cross_county	= 1		% Ratio of in- and cross- county beta
+set beta_cc_statewise	= 1.440617,0.396646,1.400661,0.488451,0.323037,0.796633,1.131163,0.508159,0.474948,0.428274,0.495230,1.648036,1.156509,0.650205,0.921352,1.071113 % a comment is necessary so far
+set n_traffic		= 2		% Exponent for (c_x / distance)^n
+set MobNetworkModel 	= true		% Select if cross county infections via MobNetwork Model
+
+% spatial and intial setting
+set spatial		= germany	% 3cities|small|bayern|germany|europeanCapitals
+set initial		= GitData	% 1000Uniform|100Burghausen|1000Munich|allMunich|RKIcountyWise|Ischgl|Heinsberg|Heiligendamm|GitData
+set initalDistributionDate	= 2020-03-16	% when using GitData in inital, set what date should be used between 2020-03-02 and 2020-05-03, ignored otherwise
+set totalRuntime	= 54		% Start is always at t=0
+set startDate		= 2020-03-02	% YYYY-MM-DD
+set endDateOpt		= 2020-04-25	% YYYY-MM-DD
+
+% Seeds
+set seed		= false		% true|false allow new seeds 
+set seedAGS		= 3159,5754	%type in AGS of seed, several seeds can be combined
+set seedDate		= 2020-06-04,2020-06-15	%type in date of seed, several seeds can be combined 
+
+% solver
+set maxTimeStep		= 1		% max timestepsize for solver
+set nRuns		= 1		% number off runs for optimization
+
+% postprocessing
+set showDiagrams	= false		% true|false
+set saveDiagrams	= true		% true|false
+set saveVTK		= true		% true|false
+set saveConnections	= false		% true|false add connections in vtk-files
+set resolutionVTK	= 55		% number of timesteps in grafical output
+set blowUp		= false		% true|false blowUp counties to cities if reduced
+set folderName		= fixed2	% Foldername for output or "auto" to choose dateTime as foldername
+set fullConsoleOut	= true		% whether the present day is written or not
+set OutputComparisonRKI	= false		% when setto true just vtks for the days where countywise data from RKI is available (for now 2020-04-25 and 2020-04-11)
+set discoveredInVTK	= false		% for sired model if discovered in vtk or not
+set vtkStyleMap		= true		% true for map, false for circles

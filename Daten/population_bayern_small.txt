@@ -1,0 +1,57 @@
+10		09					Bayern													
+20		09	1				Oberbayern													
+40	41	09	1	61			Ingolstadt													
+50	50	09	1	61	0000		Ingolstadt													
+60	61	09	1	61	0000	000	Ingolstadt	 133,35	31.12.2018	 136 981	 69 252	 67 729	 1 027	85024	11,423387	48,76542	T25	Oberbayerns Städte	01	dicht besiedelt
+40	41	09	1	62			München, Landeshauptstadt													
+50	50	09	1	62	0000		München, Landeshauptstadt													
+60	61	09	1	62	0000	000	München, Landeshauptstadt	 310,70	31.12.2018	1 471 508	 717 308	 754 200	 4 736	80313	11,575997	48,137683	T23	Landeshauptstadt München	01	dicht besiedelt
+40	41	09	1	63			Rosenheim													
+50	50	09	1	63	0000		Rosenheim													
+60	61	09	1	63	0000	000	Rosenheim	 37,22	31.12.2018	 63 324	 31 321	 32 003	 1 701	83013	12,128932	47,856358	T38	Chiemsee-Alpenland	01	dicht besiedelt
+40	44	09	1	71			Altötting													
+50	50	09	1	71	0111		Altötting, St													
+60	63	09	1	71	0111	111	Altötting, St	 23,07	31.12.2018	 12 969	 6 134	 6 835	  562	84503	12,67892	48,227986	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+50	50	09	1	71	0112		Burghausen, St													
+60	63	09	1	71	0112	112	Burghausen, St	 19,81	31.12.2018	 18 701	 9 157	 9 544	  944	84489	12,831282	48,168825	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+50	50	09	1	71	0113		Burgkirchen a.d.Alz													
+60	64	09	1	71	0113	113	Burgkirchen a.d.Alz	 46,19	31.12.2018	 10 460	 5 253	 5 207	  226	84508	12,731367	48,166556	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+50	50	09	1	71	0117		Garching a.d.Alz													
+60	64	09	1	71	0117	117	Garching a.d.Alz	 25,86	31.12.2018	 8 642	 4 268	 4 374	  334	84518	12,574383	48,127462	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+50	50	09	1	71	0118		Haiming													
+60	64	09	1	71	0118	118	Haiming	 28,73	31.12.2018	 2 493	 1 237	 1 256	  87	84533	12,88758	48,21297	T34	Inn-Salzach	03	gering besiedelt
+50	50	09	1	71	0125		Neuötting, St													
+60	63	09	1	71	0125	125	Neuötting, St	 36,60	31.12.2018	 8 932	 4 394	 4 538	  244	84524	12,690715	48,240061	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+50	50	09	1	71	0127		Pleiskirchen													
+60	64	09	1	71	0127	127	Pleiskirchen	 52,62	31.12.2018	 2 454	 1 277	 1 177	  47	84568	12,59607	48,307035	T34	Inn-Salzach	03	gering besiedelt
+50	50	09	1	71	0131		Teising													
+60	64	09	1	71	0131	131	Teising	 5,38	31.12.2018	 1 870	  930	  940	  348	84576	12,609927	48,22698	T34	Inn-Salzach	03	gering besiedelt
+50	50	09	1	71	0132		Töging a.Inn, St													
+60	63	09	1	71	0132	132	Töging a.Inn, St	 13,65	31.12.2018	 9 291	 4 581	 4 710	  681	84513	12,586743	48,254645	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+50	50	09	1	71	0133		Tüßling, M													
+60	60	09	1	71	0133	133	Tüßling, M	 19,54	31.12.2018	 3 300	 1 641	 1 659	  169	84577	12,601677	48,212289	T34	Inn-Salzach	03	gering besiedelt
+50	50	09	1	71	0137		Winhöring													
+60	64	09	1	71	0137	137	Winhöring	 24,59	31.12.2018	 4 801	 2 356	 2 445	  195	84543	12,651149	48,265589	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+50	54	09	1	71	5101		Emmerting (VGem)													
+60	64	09	1	71	5101	114	Emmerting	 14,07	31.12.2018	 4 158	 2 073	 2 085	  296	84547	12,766255	48,199992	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+60	64	09	1	71	5101	124	Mehring	 23,38	31.12.2018	 2 505	 1 272	 1 233	  107	84561	12,78353	48,178788	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+50	54	09	1	71	5102		Kirchweidach (VGem)													
+60	64	09	1	71	5102	116	Feichten a.d.Alz	 17,92	31.12.2018	 1 212	  623	  589	  68	84550	12,595784	48,081776	T34	Inn-Salzach	03	gering besiedelt
+60	64	09	1	71	5102	119	Halsbach	 22,08	31.12.2018	  961	  504	  457	  44	84553	12,675709	48,125357	T34	Inn-Salzach	03	gering besiedelt
+60	64	09	1	71	5102	122	Kirchweidach	 20,15	31.12.2018	 2 629	 1 331	 1 298	  130	84558	12,64351	48,085899	T34	Inn-Salzach	03	gering besiedelt
+60	64	09	1	71	5102	134	Tyrlaching	 20,55	31.12.2018	 1 006	  510	  496	  49	84558	12,668425	48,061068	T34	Inn-Salzach	03	gering besiedelt
+50	54	09	1	71	5103		Marktl (VGem)													
+60	60	09	1	71	5103	123	Marktl, M	 27,84	31.12.2018	 2 765	 1 402	 1 363	  99	84533	12,843658	48,25329	T34	Inn-Salzach	03	gering besiedelt
+60	64	09	1	71	5103	130	Stammham	 5,68	31.12.2018	 1 052	  537	  515	  185	84533	12,882353	48,248353	T34	Inn-Salzach	03	gering besiedelt
+50	54	09	1	71	5104		Reischach (VGem)													
+60	64	09	1	71	5104	115	Erlbach	 28,13	31.12.2018	 1 153	  563	  590	  41	84567	12,786431	48,30704	T34	Inn-Salzach	03	gering besiedelt
+60	64	09	1	71	5104	126	Perach	 14,13	31.12.2018	 1 276	  621	  655	  90	84567	12,767571	48,265551	T34	Inn-Salzach	03	gering besiedelt
+60	64	09	1	71	5104	129	Reischach	 28,46	31.12.2018	 2 604	 1 294	 1 310	  91	84571	12,725442	48,290821	T34	Inn-Salzach	03	gering besiedelt
+50	54	09	1	71	5106		Unterneukirchen (VGem)													
+60	64	09	1	71	5106	121	Kastl	 27,60	31.12.2018	 2 777	 1 380	 1 397	  101	84556	12,696097	48,193923	T34	Inn-Salzach	03	gering besiedelt
+60	64	09	1	71	5106	135	Unterneukirchen	 23,26	31.12.2018	 3 199	 1 604	 1 595	  138	84579	12,618632	48,165342	T34	Inn-Salzach	02	mittlere Besiedlungsdichte
+40	44	09	1	72			Berchtesgadener Land													
+50	50	09	1	72	0111		Ainring													
+60	64	09	1	72	0111	111	Ainring	 32,96	31.12.2018	 9 908	 4 904	 5 004	  301	83404	12,943264	47,816451	T37	Berchtesgadener Land	02	mittlere Besiedlungsdichte
+50	50	09	1	72	0112		Anger													
+60	64	09	1	72	0112	112	Anger	 45,91	31.12.2018	 4 542	 2 321	 2 221	  99	83454	12,859411	47,802378	T37	Berchtesgadener Land	03	gering besiedelt

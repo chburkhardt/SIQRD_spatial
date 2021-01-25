@@ -1,0 +1,11 @@
+10		09					Bayern													
+20		09	1				Oberbayern													
+40	41	09	1	61			Ingolstadt													
+50	50	09	1	61	0000		Ingolstadt													
+60	61	09	1	61	0000	000	Ingolstadt	 133,35	31.12.2018	 136 981	 69 252	 67 729	 1 027	85024	11,423387	48,76542	T25	Oberbayerns Städte	01	dicht besiedelt
+40	41	09	1	62			München, Landeshauptstadt													
+50	50	09	1	62	0000		München, Landeshauptstadt													
+60	61	09	1	62	0000	000	München, Landeshauptstadt	 310,70	31.12.2018	1 471 508	 717 308	 754 200	 4 736	80313	11,575997	48,137683	T23	Landeshauptstadt München	01	dicht besiedelt
+40	41	09	1	63			Rosenheim													
+50	50	09	1	63	0000		Rosenheim													
+60	61	09	1	63	0000	000	Rosenheim	 37,22	31.12.2018	 63 324	 31 321	 32 003	 1 701	83013	12,128932	47,856358	T38	Chiemsee-Alpenland	01	dicht besiedelt
